@@ -24,3 +24,4 @@ Route::get('/','HomePageController@index')->name('home');
 Route::get('contact','ContactController@index')->name('contact');
 Route::get('donation','DonationController@index')->name('donation');
 Route::get('programhighlights','ProgramHighlightsController@index')->name('programhighlights');
+Route::get('admin_index','Admin\HomeController@index')->name('admin_index');
