@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\ProgramHighlightsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/aboutus', function () {
+//     return view('aboutus');
+// });
+Route::get('aboutus', [AboutUsController::class, 'index'])->name('aboutus');
+Route::get('home', [HomePageController::class, 'index'])->name('home');
+Route::get('contact', [ContactController::class, 'index'])->name('contact');
+Route::get('donation', [DonationController::class, 'index'])->name('donation');
+Route::get('programhighlights', [ProgramHighlightsController::class, 'index'])->name('programhighlights');
