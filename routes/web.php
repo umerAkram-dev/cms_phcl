@@ -16,12 +16,13 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('aboutus','AboutUsController@index')->name('aboutus');
-Route::get('/','HomePageController@index')->name('home');
+Route::get('/','HomePageController@index')->name('landing');
 Route::get('contact','ContactController@index')->name('contact');
 Route::get('donation','DonationController@index')->name('donation');
 Route::get('programhighlights','ProgramHighlightsController@index')->name('programhighlights');
-Route::get('admin_index','Admin\HomeController@index')->name('admin_index');
+
+
+Route::get('home','Admin\HomeController@index')->name('admin.index');
