@@ -29,7 +29,7 @@
                 </div>
                 <div class="d-lg-flex d-md-flex justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link nav_links nav_links_blue" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link nav_links nav_links_blue" href="{{ route('landing') }}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav_links" href="{{ route('aboutus') }}">CLASSES</a>

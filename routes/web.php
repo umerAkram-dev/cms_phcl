@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +25,5 @@ Route::get('contact','ContactController@index')->name('contact');
 Route::get('donation','DonationController@index')->name('donation');
 Route::get('programhighlights','ProgramHighlightsController@index')->name('programhighlights');
 
-
-Route::get('home','Admin\HomeController@index')->name('admin.index');
+Route::get('/home','Admin\HomeController@index')->name('admin.index');
+Route::post('update_content','Admin\ContentController@update')->name('admin.update_content');
