@@ -10,14 +10,14 @@
     <main id="main" class="main">
         <section class="section">
             <div class="row">
-                @include('admin.home.parts.header')
-                @include('admin.home.parts.about')
-                @include('admin.home.parts.services')
-                @include('admin.home.parts.gallery')
-                @include('admin.home.parts.traction')
-                @include('admin.home.parts.team')
-                @include('admin.home.parts.testimonies')
-                @include('admin.home.parts.donation')
+                @include('admin.home.parts.index.header')
+                @include('admin.home.parts.index.about')
+                @include('admin.home.parts.index.services')
+                @include('admin.home.parts.index.gallery')
+                @include('admin.home.parts.index.traction')
+                @include('admin.home.parts.index.team')
+                @include('admin.home.parts.index.testimonies')
+                @include('admin.home.parts.index.donation')
                 {{-- Donations End --}}
                 {{-- Latest News And Resources --}}
                 <div class="col-lg-12">

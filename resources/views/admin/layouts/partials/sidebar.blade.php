@@ -10,6 +10,16 @@
                             <i class="bi bi-circle"></i><span>Landing Page</span>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('admin.contact_us') }}" class="active">
+                            <i class="bi bi-circle"></i><span>Contact Us Page</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.donation') }}" class="active">
+                            <i class="bi bi-circle"></i><span>Donation</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>
