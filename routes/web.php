@@ -24,7 +24,8 @@ Route::get('donation','DonationController@index')->name('donation');
 Route::get('programhighlights','ProgramHighlightsController@index')->name('programhighlights');
 
 Route::get('/home','Admin\HomeController@index')->name('admin.index');
-Route::get('/contact_us','Admin\HomeController@contact_us')->name('admin.contact_us');
+Route::get('/about_us','Admin\HomeController@about_us')->name('admin.about_us');
 Route::get('/admin/donation','Admin\HomeController@donation')->name('admin.donation');
 Route::get('/admin/programhighlights','Admin\HomeController@programhighlights')->name('admin.programhighlights');
+Route::get('/admin/contact','Admin\HomeController@contact')->name('admin.contact');
 Route::post('update_content','Admin\ContentController@update')->name('admin.update_content');

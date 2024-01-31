@@ -4,7 +4,7 @@
             <h5 class="card-title">Our Team</h5>
             <form action="{{ route('admin.update_content') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="page" value="{{ $page = 'contact' }}">
+                <input type="hidden" name="page" value="{{ $page = 'about_us' }}">
                 <input type="hidden" name="page_subtype" value="{{ $page_subtype = 'team' }}">
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label">Top Description</label>
@@ -29,7 +29,7 @@
                                 <h5 class="card-title">Our Teammate {{ $i }}</h5>
                                 <form action="{{ route('admin.update_content') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <input type="hidden" name="page" value="{{ $page = 'contact' }}">
+                                    <input type="hidden" name="page" value="{{ $page = 'about_us' }}">
                                     <input type="hidden" name="page_subtype" value="{{ $page_subtype = 'out_team'.$i.'' }}">
                                     <div class="row mb-3">
                                         <label class="col-12">Our Teammate

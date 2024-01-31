@@ -1,7 +1,17 @@
 @extends('layouts.app')
+@section('css_after')
+    <style>
+        .navbar_bg {
+            background-image: url('{{ asset('frontend/home/header/header_background_img.png') }}') !important;
+        }
+    </style>
+@endsection
 @section('content')
-     <!-- Navbar Section  -->
-     <section>
+    <!-- Navbar Section  -->
+    @php
+        $page = 'home';
+    @endphp
+    <section>
         <div class="navbar_bg">
             <nav class="navbar navbar-expand-lg bg-transparent">
                 @include('layouts.partials.navbar')
@@ -13,13 +23,11 @@
                             <div class="rehabilitation_box">
                                 <div>
                                     <h3 class="rehabilitation_box_h3">
-                                        Where rehabilitation, health and performance meet.
+                                        {{ $data['header_heading'] ?? null }}
                                     </h3>
                                 </div>
                                 <div>
-                                    <p class="rehabilitation_box_p">Lorem ipsum dolor sit amet consectetur. At velit ut
-                                        arcu massa nisi lorem ac. Feugiat amet pharetra semper ut facilisi sit
-                                        adipiscing eget. Enim et facilisis </p>
+                                    <p class="rehabilitation_box_p">{{ $data['header_description'] ?? null }}</p>
                                 </div>
                             </div>
                         </div>
@@ -39,19 +47,15 @@
                     <div class="col-lg-6 col-md-6 col-12">
                         <div>
                             <h3 class="about_phcl_h3">About PCHL</h3>
-                            <p class="about_phcl_p">PLorem ipsum dolor sit amet consectetur. At velit ut arcu massa nisi
-                                lorem ac. Feugiat amet pharetra semper ut facilisi sit adipiscing eget. Enim et
-                                facilisis Lorem ipsum dolor sit amet consectetur. At velit ut arcu massa nisi lorem ac.
-                                Feugiat amet pharetra semper ut facilisi sit adipiscing eget. Enim et facilisis Lorem
-                                ipsum dolor sit amet consectetur. At velit ut arcu massa nisi lorem ac. Feugiat amet
-                                pharetra semper ut </p>
+                            <p class="about_phcl_p">{{ $data['about_pchl_description'] ?? null }}</p>
                             <h5 class="about_phcl_read_more pt-2 pb-lg-0 pb-md-0 pb-3">Read More About Us <img
                                     src="./assets/images/Arrow 3.png" class="ps-2" alt=""></h5>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="text-center">
-                            <img src="./assets/images/Group 4.png" class="img-fluid about_phcl_img" alt="">
+                            <img src="{{ asset('frontend/' . $page . '/about/about_pchl_background_img.png') }}"
+                                class="img-fluid about_phcl_img" alt="">
                         </div>
                     </div>
                 </div>
@@ -77,17 +81,22 @@
                         </div>
                         <div class="row pt-lg-5 px-lg-5 px-md-4 px-3">
                             <div class="row px-lg-5 pt-lg-4">
-                                <div class="col-lg-4 col-md-4 col-12">
-                                    <div class="services_box">
-                                        <div>
-                                            <img src="./assets/images/Group 9422.png" alt="">
-                                            <h3 class="cooking_classes_h3 mb-3 mt-3">Cooking Classes</h3>
-                                            <p class="cooking_classes_p mb-0">Lorem ipsum dolor sit amet consectetur.
-                                                Aenean in auctor vivamus sollicitudin venenatis at risus elit.</p>
+                                @for ($i = 1; $i < 4; $i++)
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <div class="services_box">
+                                            <div>
+                                                <img width="80px"
+                                                    src="{{ asset('frontend/' . $page . '/our_service_' . $i . '/service_box_img_' . $i . '.png') }}"
+                                                    alt="">
+                                                <h3 class="cooking_classes_h3 mb-3 mt-3">
+                                                    {{ $data['our_service_heading_' . $i . ''] ?? null }}</h3>
+                                                <p class="cooking_classes_p mb-0">
+                                                    {{ $data['our_services_' . $i . '_description'] ?? null }}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-12">
+                                @endfor
+                                {{-- <div class="col-lg-4 col-md-4 col-12">
                                     <div class="services_box">
                                         <div>
                                             <img src="./assets/images/Group 9422 (1).png" alt="">
@@ -106,7 +115,7 @@
                                                 Aenean in auctor vivamus sollicitudin venenatis at risus elit.</p>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -125,14 +134,14 @@
                     <div class="col-12">
                         <div class="text-center">
                             <h3 class="cooking_classes_h3">Gallery</h3>
-                            <p class="cooking_classes_p pb-lg-5 pb-3">Lorem ipsum dolor sit amet consectetur. Urna
-                                lacinia lacus <br> odio consectetur. Nisi eleifend a quam leo s</p>
+                            <p class="cooking_classes_p pb-lg-5 pb-3">{{ $data['gallery_description'] ?? null }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <img src="./assets/images/Photo's.png" class="img-fluid images_height" alt="">
+                        <img src="{{ asset('frontend/' . $page . '/gallery/gallery_img.png') }}"
+                            class="img-fluid images_height" alt="">
                     </div>
                 </div>
             </div>
@@ -153,16 +162,21 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-12">
-                            <div class="services_box">
-                                <div class="text-center">
-                                    <img src="./assets/images/image 1 (1).png" alt="">
-                                    <h3 class="traction_h3 mb-3 mt-3">Projects</h3>
-                                    <p class="traction_count mb-0">2500</p>
+                        @for ($i = 1; $i < 5; $i++)
+                            <div class="col-lg-3 col-md-3 col-12">
+                                <div class="services_box">
+                                    <div class="text-center">
+                                        <img src="{{ asset('frontend/' . $page . '/our_traction_' . $i . '/our_traction_img_' . $i . '.png') }}"
+                                            alt="">
+                                        <h3 class="traction_h3 mb-3 mt-3">
+                                            {{ $data['our_traction_heading_' . $i . ''] ?? null }}</h3>
+                                        <p class="traction_count mb-0">
+                                            {{ $data['our_traction_' . $i . '_description'] ?? null }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-12">
+                        @endfor
+                        {{-- <div class="col-lg-3 col-md-3 col-12">
                             <div class="services_box">
                                 <div class="text-center">
                                     <img src="./assets/images/image 3.png" alt="">
@@ -188,15 +202,13 @@
                                     <p class="traction_count mb-0">3000</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Meet Our Teem Section  -->
-
     <section>
         <div class="gallery_top_bottom_space">
             <div class="container">
@@ -204,13 +216,34 @@
                     <div class="col-12">
                         <div class="text-center">
                             <h3 class="cooking_classes_h3">Meet our Team</h3>
-                            <p class="cooking_classes_p pb-lg-5 pb-3">Lorem ipsum dolor sit amet consectetur. Urna
-                                lacinia lacus <br> odio consectetur. Nisi eleifend a quam leo s</p>
+                            <p class="cooking_classes_p pb-lg-5 pb-3">{{ $data['our_team_description'] ?? null }}</p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-12">
+                    @for ($i = 1; $i < 4; $i++)
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="text-center">
+                                <img src="{{ asset('frontend/' . $page . '/our_teammate_' . $i . '/our_teammate_img_' . $i . '.png') }}"
+                                    alt="">
+                            </div>
+                            <div class="team_box">
+                                <div class="d-flex align-items-start h-100">
+                                    <div>
+                                        <img src="./assets/images/Group 9416.png" alt="">
+                                    </div>
+                                    <div>
+                                        <h3 class="team_member_name mt-3">
+                                            {{ $data['our_teammate_heading_' . $i . ''] ?? null }}</h3>
+                                        <p class="cooking_classes_p mb-3">
+                                            {{ $data['our_teammate_' . $i . '_description'] ?? null }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+
+                    {{-- <div class="col-lg-4 col-md-4 col-12">
                         <div class="text-center">
                             <img src="./assets/images/image 7.png" alt="">
                         </div>
@@ -241,23 +274,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <div class="text-center">
-                            <img src="./assets/images/image 7.png" alt="">
-                        </div>
-                        <div class="team_box">
-                            <div class="d-flex align-items-start h-100">
-                                <div>
-                                    <img src="./assets/images/Group 9416.png" alt="">
-                                </div>
-                                <div>
-                                    <h3 class="team_member_name mt-3">Dr. Michael Santoso</h3>
-                                    <p class="cooking_classes_p mb-3">Head of Lorem Ispum</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -277,8 +294,9 @@
                 </div>
                 <div class="row pt-5 pb-lg-5">
                     <div class="col-lg-6 col-md-6 d-flex justify-content-start align-items-center">
-                        <h6 class="waht_people_say">What People Say About Us,<br> Hear it from them</h6>
+                        <h6 class="waht_people_say">{{ $data['testimonies_heading'] ?? null }}</h6>
                     </div>
+
                     <div class="col-lg-6 col-md-6">
                         <div class="comment">
                             <div class="rating d-flex align-items-end">
@@ -290,25 +308,50 @@
                                 <i class="fa-solid fa-star"></i>
                             </div>
                             <p class="ps-lg-5 testimonial_review pt-4 pb-2">
-                                “With Ehya, we’re able to easily track our performance in full detail. It’s become an
-                                essential
-                                tool for us to grow and
-                                engage with our audience.”
+                                {{ $data['our_client_1_description'] ?? null }}
                             </p>
                         </div>
                         <div class="row ps-lg-5">
                             <div class="col-lg-2 col-md-2">
-                                <img src="./assets/images/user-photo.png" alt="" class="user-pic mb-lg-0 mb-md-3 mb-3">
+                                <img src="./assets/images/user-photo.png" alt=""
+                                    class="user-pic mb-lg-0 mb-md-3 mb-3">
                             </div>
                             <div class="col-lg-10 col-md-10">
-                                <h6 class="user_name_testimonial">Jaquon Hart</h6>
-                                <p class="testimonial_review_designation">Digital Marketing Executive, Hypebeast</p>
+                                <h6 class="user_name_testimonial">{{ $data['our_client_name_1'] ?? null }}</h6>
+                                <p class="testimonial_review_designation">{{ $data['our_client_1_role'] ?? null }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row pb-lg-5">
-                    <div class="col-lg-5 col-md-6 col-12">
+                    @for ($i = 2; $i < 4; $i++)
+                        <div class="col-lg-5 col-md-6 col-12 {{ $i == 3 ? 'ps-lg-5 padding_top_testimonial':'' }}">
+                            <div class="comment">
+                                <div class="rating d-flex align-items-end">
+                                    <img src="./assets/images/“.png" class="pe-2" alt="">
+                                    <i class="fa-solid fa-star pe-2"></i>
+                                    <i class="fa-solid fa-star pe-2"></i>
+                                    <i class="fa-solid fa-star pe-2"></i>
+                                    <i class="fa-solid fa-star pe-2"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <p class="ps-lg-5 testimonial_review pt-4 pb-2">{{ $data['our_client_1_description'] ?? null }}
+                                    {{ $data['our_client_'$i'_description'] ?? null }}
+                                </p>
+                            </div>
+                            <div class="row ps-lg-5">
+                                <div class="col-lg-2 col-md-2">
+                                    <img src="./assets/images/user-photo.png" alt=""
+                                        class="user-pic mb-lg-0 mb-md-3 mb-3">
+                                </div>
+                                <div class="col-lg-10 col-md-10">
+                                    <h6 class="user_name_testimonial">{{ $data['our_client_name_'.$i.''] ?? null }}</h6>
+                                    <p class="testimonial_review_designation">{{ $data['our_client_'.$i.'_role'] ?? null }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endfor
+                    {{-- <div class="col-lg-5 col-md-6 col-12 ">
                         <div class="comment">
                             <div class="rating d-flex align-items-end">
                                 <img src="./assets/images/“.png" class="pe-2" alt="">
@@ -327,41 +370,15 @@
                         </div>
                         <div class="row ps-lg-5">
                             <div class="col-lg-2 col-md-2">
-                                <img src="./assets/images/user-photo.png" alt="" class="user-pic mb-lg-0 mb-md-3 mb-3">
+                                <img src="./assets/images/user-photo.png" alt=""
+                                    class="user-pic mb-lg-0 mb-md-3 mb-3">
                             </div>
                             <div class="col-lg-10 col-md-10">
                                 <h6 class="user_name_testimonial">Jaquon Hart</h6>
                                 <p class="testimonial_review_designation">Digital Marketing Executive, Hypebeast</p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-5 col-md-6 col-12 ps-lg-5 padding_top_testimonial">
-                        <div class="comment">
-                            <div class="rating d-flex align-items-end">
-                                <img src="./assets/images/“.png" class="pe-2" alt="">
-                                <i class="fa-solid fa-star pe-2"></i>
-                                <i class="fa-solid fa-star pe-2"></i>
-                                <i class="fa-solid fa-star pe-2"></i>
-                                <i class="fa-solid fa-star pe-2"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <p class="ps-lg-5 testimonial_review pt-4 pb-2">
-                                “With Ehya, we’re able to easily track our performance in full detail. It’s become an
-                                essential
-                                tool for us to grow and
-                                engage with our audience.”
-                            </p>
-                        </div>
-                        <div class="row ps-lg-5">
-                            <div class="col-lg-2 col-md-2">
-                                <img src="./assets/images/user-photo.png" alt="" class="user-pic mb-lg-0 mb-md-3 mb-3">
-                            </div>
-                            <div class="col-lg-10 col-md-10">
-                                <h6 class="user_name_testimonial">Jaquon Hart</h6>
-                                <p class="testimonial_review_designation">Digital Marketing Executive, Hypebeast</p>
-                            </div>
-                        </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -437,7 +454,8 @@
                         <div class="text-center">
                             <h3 class="cooking_classes_h3 pt-5">Latest News and Resources</h3>
                             <p class="cooking_classes_p pb-3">Lorem ipsum dolor sit amet consectetur. Urna lacinia lacus
-                                <br> odio consectetur. Nisi eleifend a quam leo s</p>
+                                <br> odio consectetur. Nisi eleifend a quam leo s
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -473,14 +491,14 @@
                 </div>
                 <div>
                     <div class="text-center pt-4">
-                        <img src="./assets/images/Round Alt Arrow Left.png" class="cursor_pointer" id="prev" alt="">
-                        <img src="./assets/images/Round Alt Arrow Right.png" class="cursor_pointer" id="next" alt="">
+                        <img src="./assets/images/Round Alt Arrow Left.png" class="cursor_pointer" id="prev"
+                            alt="">
+                        <img src="./assets/images/Round Alt Arrow Right.png" class="cursor_pointer" id="next"
+                            alt="">
                     </div>
                 </div>
             </div>
 
         </div>
     </section>
-
-
 @endsection

@@ -10,10 +10,7 @@
     <main id="main" class="main">
         <section class="section">
             <div class="row">
-                @include('admin.home.parts.contact_us.header')
-                @include('admin.home.parts.contact_us.about')
-                @include('admin.home.parts.contact_us.team')
-                @include('admin.home.parts.contact_us.gallery')
+                @include('admin.home.parts.highlights.header')
             </div>
         </section>
     </main>

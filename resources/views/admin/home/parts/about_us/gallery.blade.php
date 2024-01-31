@@ -4,7 +4,7 @@
             <h5 class="card-title">Gallery</h5>
             <form action="{{ route('admin.update_content') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="page" value="{{ $page = 'contact' }}">
+                <input type="hidden" name="page" value="{{ $page = 'about_us' }}">
                 <input type="hidden" name="page_subtype" value="{{ $page_subtype = 'gallery' }}">
                 <div class="row mb-3">
                     <label for="inputPassword" class="col-12">Description</label>

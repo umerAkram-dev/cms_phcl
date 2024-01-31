@@ -17,15 +17,15 @@ class HomeController extends Controller
         }
         return view('admin.home.index', compact('data'));
     }
-    public function contact_us()
+    public function about_us()
     {
         $data = [];
-        $contents = Content::where('page', 'contact')->get();
+        $contents = Content::where('page', 'about_us')->get();
         foreach ($contents as $value) {
             $data[$value->type] = $value->content;
         }
         // dd($data);
-        return view('admin.home.contact_us', compact('data'));
+        return view('admin.home.about_us', compact('data'));
     }
     public function donation()
     {
@@ -44,7 +44,16 @@ class HomeController extends Controller
         foreach ($contents as $value) {
             $data[$value->type] = $value->content;
         }
-        // dd($data);
+
         return view('admin.home.program_highlights', compact('data'));
+    }
+    public function contact()
+    {
+        $data = [];
+        $contents = Content::where('page', 'contact')->get();
+        foreach ($contents as $value) {
+            $data[$value->type] = $value->content;
+        }
+        return view('admin.home.contact', compact('data'));
     }
 }

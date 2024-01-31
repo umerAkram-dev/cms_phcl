@@ -4,7 +4,7 @@
             <h5 class="card-title">About PCHL</h5>
             <form action="{{ route('admin.update_content') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input type="hidden" name="page" value="{{ $page = 'contact' }}">
+                <input type="hidden" name="page" value="{{ $page = 'about_us' }}">
                 <input type="hidden" name="page_subtype" value="{{ $page_subtype = 'about' }}">
                 <div class="row mb-3">
                     <label class="col-12">Description</label>
@@ -30,7 +30,7 @@
                                 <h5 class="card-title">About PCHL {{ $i }}</h5>
                                 <form action="{{ route('admin.update_content') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <input type="hidden" name="page" value="{{ $page = 'contact' }}">
+                                    <input type="hidden" name="page" value="{{ $page = 'about_us' }}">
                                     <input type="hidden" name="page_subtype" value="{{ $page_subtype = 'about_pchl_' . $i . '' }}">
                                     <div class="row mb-3">
                                         <label class="col-12">About PCHL

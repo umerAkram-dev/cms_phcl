@@ -6,7 +6,7 @@ body {
 
 .navbar_bg {
     background-image: url("../assets/images/Vector\ 2.png");
-    /* height: 700px; */
+    height: 600px;
     background-size: cover;
     background-position: center;
     /* You can adjust this to top, bottom, left, right, etc. */

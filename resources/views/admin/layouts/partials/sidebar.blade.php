@@ -11,13 +11,23 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin.contact_us') }}" class="active">
-                            <i class="bi bi-circle"></i><span>Contact Us Page</span>
+                        <a href="{{ route('admin.about_us') }}" class="active">
+                            <i class="bi bi-circle"></i><span>About Us Page</span>
                         </a>
                     </li>
                     <li>
                         <a href="{{ route('admin.donation') }}" class="active">
                             <i class="bi bi-circle"></i><span>Donation</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.programhighlights') }}" class="active">
+                            <i class="bi bi-circle"></i><span>Program Highlights</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.contact') }}" class="active">
+                            <i class="bi bi-circle"></i><span>Contact</span>
                         </a>
                     </li>
                 </ul>

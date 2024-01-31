@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Content;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
 {
     public function index()
     {
-        return view('index');
+        $contents = Content::where('page', 'home')->get();
+        $data = [];
+        foreach ($contents as $value) {
+            $data[$value->type] = $value->content;
+        }
+        // dd($data);
+        return view('index', compact('data'));
     }
 }
