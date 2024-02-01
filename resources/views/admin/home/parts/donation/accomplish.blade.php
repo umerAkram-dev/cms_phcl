@@ -2,37 +2,38 @@
     <div class="card">
         <div class="row">
             @for ($i = 1; $i < 5; $i++)
+
                 <div class="col-4 ">
                     <div class="card-body {{ $i == 4 ? '': 'border_right' }}">
                         <h5 class="card-title">Donations Accomplish {{ $i }}</h5>
                         <form action="{{ route('admin.update_content') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="page" value="{{ $page = 'donation' }}">
-                            <input type="hidden" name="page_subtype" value="{{ $page_subtype = 'our_traction_'.$i.'' }}">
+                            <input type="hidden" name="page_subtype" value="{{ $page_subtype = 'donations_accomplish_'.$i.'' }}">
                             <div class="row mb-3">
                                 <label for="inputNumber" class="col-12">Donations Accomplish
                                     Image</label>
                                 <div class="col-12">
-                                    <input class="form-control" name="img[our_traction_img_{{ $i }}]"
+                                    <input class="form-control" name="img[donations_accomplish_img_{{ $i }}]"
                                         accept="image/png, image/jpeg, image/jpg, image/svg," type="file">
                                 </div>
                                 <div class="col-12 mt-2">
                                     <img width="100px"
-                                        src="{{ asset('frontend/' . $page . '/' . $page_subtype . '/our_traction_img_'.$i.'.png') }}"
+                                        src="{{ asset('frontend/' . $page . '/' . $page_subtype . '/donations_accomplish_img_'.$i.'.png') }}"
                                         alt="">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-12">Heading</label>
                                 <div class="col-12">
-                                    <input type="text" name="type[our_traction_heading_{{ $i }}]" class="form-control"
-                                        value="{{ $data['our_traction_heading_'.$i.''] ?? null }}">
+                                    <input type="text" name="type[donations_accomplish_heading_{{ $i }}]" class="form-control"
+                                        value="{{ $data['donations_accomplish_heading_'.$i.''] ?? null }}">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <label for="inputPassword" class="col-12">Description</label>
                                 <div class="col-12">
-                                    <textarea class="form-control" name="type[our_traction_{{ $i }}_description]" required style="height: 100px">{{ $data['our_traction_'.$i.'_description'] ?? null }}</textarea>
+                                    <textarea class="form-control" name="type[donations_accomplish_{{ $i }}_description]" required style="height: 100px">{{ $data['donations_accomplish_'.$i.'_description'] ?? null }}</textarea>
                                 </div>
                             </div>
                             <div class="row mb-3">

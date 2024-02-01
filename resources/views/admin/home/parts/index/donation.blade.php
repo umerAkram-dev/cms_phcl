@@ -14,6 +14,13 @@
                     </div>
                 </div>
                 <div class="row mb-3">
+                    <label class="col-12">Donation Amount 2</label>
+                    <div class="col-12">
+                        <input type="text" name="type[donation_amount_2]" class="form-control"
+                            value="{{ $data['donation_amount_2'] ?? null }}">
+                    </div>
+                </div>
+                <div class="row mb-3">
                     <label for="inputNumber" class="col-12">Image</label>
                     <div class="col-12">
                         <input class="form-control" name="img[donation_img]"

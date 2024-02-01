@@ -336,7 +336,7 @@
                                     <i class="fa-solid fa-star"></i>
                                 </div>
                                 <p class="ps-lg-5 testimonial_review pt-4 pb-2">{{ $data['our_client_1_description'] ?? null }}
-                                    {{ $data['our_client_'$i'_description'] ?? null }}
+                                    {{ $data['our_client_'.$i.'_description'] ?? null }}
                                 </p>
                             </div>
                             <div class="row ps-lg-5">
@@ -351,34 +351,6 @@
                             </div>
                         </div>
                     @endfor
-                    {{-- <div class="col-lg-5 col-md-6 col-12 ">
-                        <div class="comment">
-                            <div class="rating d-flex align-items-end">
-                                <img src="./assets/images/“.png" class="pe-2" alt="">
-                                <i class="fa-solid fa-star pe-2"></i>
-                                <i class="fa-solid fa-star pe-2"></i>
-                                <i class="fa-solid fa-star pe-2"></i>
-                                <i class="fa-solid fa-star pe-2"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <p class="ps-lg-5 testimonial_review pt-4 pb-2">
-                                “With Ehya, we’re able to easily track our performance in full detail. It’s become an
-                                essential
-                                tool for us to grow and
-                                engage with our audience.”
-                            </p>
-                        </div>
-                        <div class="row ps-lg-5">
-                            <div class="col-lg-2 col-md-2">
-                                <img src="./assets/images/user-photo.png" alt=""
-                                    class="user-pic mb-lg-0 mb-md-3 mb-3">
-                            </div>
-                            <div class="col-lg-10 col-md-10">
-                                <h6 class="user_name_testimonial">Jaquon Hart</h6>
-                                <p class="testimonial_review_designation">Digital Marketing Executive, Hypebeast</p>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -396,7 +368,7 @@
     </section>
 
     <!-- Progress bar Section  -->
-
+{{-- @dd($data) --}}
     <section>
         <div class="container">
             <div class="row pb-4">
@@ -411,14 +383,14 @@
                 <div class="col-lg-6 col-md-6 col-12 pe-lg-0">
                     <div class="first_half_bar text-center py-2">
                         <span class="">
-                            $27.00
+                            ${{ $data['donation_amount'] ?? null }}
                         </span>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-12 ps-lg-0">
                     <div class="second_half_bar text-center py-2">
                         <span class="">
-                            $150.00
+                            ${{ $data['donation_amount_2'] ?? null }}
                         </span>
                     </div>
                 </div>
