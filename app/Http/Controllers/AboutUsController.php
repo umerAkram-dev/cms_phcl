@@ -18,4 +18,7 @@ class AboutUsController extends Controller
         // resources/views/aboutus.blade.php
         return view('aboutus', compact('data'));
     }
+    public function ride(){
+        return view('ride');
+    }
 }

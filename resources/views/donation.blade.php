@@ -41,7 +41,8 @@
                 <div class="row align-items-center h-100">
                     <div class="col-lg-2 col-md-2 col-12">
                         <div class="text-center">
-                            <img src="./assets/images/Group 9.png" alt="">
+
+                            <img src="{{ asset('frontend/donation/header/donation_img.png') }}" alt="">
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-8 col-12">

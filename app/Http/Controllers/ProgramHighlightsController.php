@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Content;
 
 class ProgramHighlightsController extends Controller
 {
     public function index()
     {
-        return view('programhighlights');
+        $contents = Content::where('page', 'programhighlights')->get();
+        $data = [];
+        foreach ($contents as $value) {
+            $data[$value->type] = $value->content;
+        }
+        return view('programhighlights', compact('data'));
     }
 }

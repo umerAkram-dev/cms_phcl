@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('css_after')
+    <style>
+        .navbar_bg {
+            background-image: url('{{ asset('frontend/contact/header/header_background_img.png') }}') !important;
+        }
+    </style>
+@endsection
 @section('content')
        <!-- Navbar Section  -->
        <section>
@@ -13,7 +20,7 @@
                             <div class="">
                                 <div>
                                     <h3 class="rehabilitation_box_h3_about">
-                                        Contact
+                                        {{ $data['header_heading'] ?? null }}
                                     </h3>
                                 </div>
                                 <div>
