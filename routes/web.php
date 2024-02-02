@@ -30,3 +30,4 @@ Route::get('/admin/donation','Admin\HomeController@donation')->name('admin.donat
 Route::get('/admin/programhighlights','Admin\HomeController@programhighlights')->name('admin.programhighlights');
 Route::get('/admin/contact','Admin\HomeController@contact')->name('admin.contact');
 Route::post('update_content','Admin\ContentController@update')->name('admin.update_content');
+Route::get('/admin/ride','Admin\HomeController@ride_page')->name('admin.ride_page');

@@ -1,8 +1,10 @@
 @extends('layouts.app')
 @section('css_after')
-    <style>
-
-    </style>
+<style>
+    .navbar_bg {
+        background-image: url('{{ asset('frontend/ride/header/header_background_img.png') }}') !important;
+    }
+</style>
 @endsection
 @section('content')
     <header class="header">
