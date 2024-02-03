@@ -33,7 +33,7 @@
                                     @csrf
                                     <input type="hidden" name="page" value="{{ $page = 'home' }}">
                                     <input type="hidden" name="page_subtype"
-                                        value="{{ $page_subtype = 'our_client_' . $i . '' }}">
+                                        value="{{ $page_subtype = 'our_client_' . $i }}">
                                     <div class="row mb-3">
                                         <label class="col-12">Description</label>
                                         <div class="col-12">

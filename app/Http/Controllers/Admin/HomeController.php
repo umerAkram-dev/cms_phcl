@@ -65,4 +65,13 @@ class HomeController extends Controller
         }
         return view('admin.home.ride_page', compact('data'));
     }
+    public function settings()
+    {
+        $data = [];
+        $contents = Content::where('page', 'ride')->get();
+        foreach ($contents as $value) {
+            $data[$value->type] = $value->content;
+        }
+        return view('admin.home.settings_page', compact('data'));
+    }
 }

@@ -17,7 +17,7 @@ class CreateContentsTable extends Migration
             $table->id();
             $table->string('page')->nullable();
             $table->string('type')->nullable();
-            $table->string('content')->nullable();
+            $table->longText('content')->nullable();
             $table->timestamps();
         });
     }

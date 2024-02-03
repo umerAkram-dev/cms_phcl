@@ -108,7 +108,7 @@
                     </div>
                     <div class="col-lg-4 col-md-4 col-12">
                         <div class="text-center">
-                            <img src="{{ asset('frontend/about_us/about_pchl_2/about_pchl_img_2.png') }}" alt="">
+                            <img src="{{ asset('frontend/about_us/out_team1/our_teammate_img_1.png') }}" alt="">
                         </div>
                         <div class="team_box">
                             <div class="d-flex align-items-start h-100">

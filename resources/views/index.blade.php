@@ -89,37 +89,16 @@
                                                     src="{{ asset('frontend/' . $page . '/our_service_' . $i . '/service_box_img_' . $i . '.png') }}"
                                                     alt="">
                                                 <h3 class="cooking_classes_h3 mb-3 mt-3">
-                                                    {{ $data['our_service_heading_' . $i . ''] ?? null }}</h3>
+                                                    {{ $data['our_service_heading_' . $i ] ?? null }}</h3>
                                                 <p class="cooking_classes_p mb-0">
                                                     {{ $data['our_services_' . $i . '_description'] ?? null }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 @endfor
-                                {{-- <div class="col-lg-4 col-md-4 col-12">
-                                    <div class="services_box">
-                                        <div>
-                                            <img src="./assets/images/Group 9422 (1).png" alt="">
-                                            <h3 class="cooking_classes_h3 mb-3 mt-3">Lifestyle Changes</h3>
-                                            <p class="cooking_classes_p mb-0">Lorem ipsum dolor sit amet consectetur.
-                                                Aenean in auctor vivamus sollicitudin venenatis at risus elit.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-12">
-                                    <div class="services_box">
-                                        <div>
-                                            <img src="./assets/images/Group 9422 (2).png" alt="">
-                                            <h3 class="cooking_classes_h3 mb-3 mt-3">Treatments</h3>
-                                            <p class="cooking_classes_p mb-0">Lorem ipsum dolor sit amet consectetur.
-                                                Aenean in auctor vivamus sollicitudin venenatis at risus elit.</p>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -313,7 +292,7 @@
                         </div>
                         <div class="row ps-lg-5">
                             <div class="col-lg-2 col-md-2">
-                                <img src="./assets/images/user-photo.png" alt=""
+                                <img src="{{ asset('frontend/home/our_client_1/our_client_img_1.png') }}" alt=""
                                     class="user-pic mb-lg-0 mb-md-3 mb-3">
                             </div>
                             <div class="col-lg-10 col-md-10">
@@ -341,7 +320,7 @@
                             </div>
                             <div class="row ps-lg-5">
                                 <div class="col-lg-2 col-md-2">
-                                    <img src="./assets/images/user-photo.png" alt=""
+                                    <img src="{{ asset('frontend/home/our_client_'.$i.'/our_client_img_'.$i.'.png') }}" alt=""
                                         class="user-pic mb-lg-0 mb-md-3 mb-3">
                                 </div>
                                 <div class="col-lg-10 col-md-10">

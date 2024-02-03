@@ -2,7 +2,7 @@
 @section('css_after')
     <style>
         .navbar_bg {
-            background-image: url('{{ asset('frontend/donation/header/donation_img.png') }}') !important;
+            background-image: url('{{ asset('frontend/donation/header/header_background_img.png') }}') !important;
         }
     </style>
 @endsection
