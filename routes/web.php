@@ -22,7 +22,7 @@ Route::get('/','HomePageController@index')->name('landing');
 Route::get('contact','ContactController@index')->name('contact');
 Route::get('donation','DonationController@index')->name('donation');
 Route::get('programhighlights','ProgramHighlightsController@index')->name('programhighlights');
-Route::get('ride','AboutUsController@ride')->name('ride');
+Route::get('ride','RideController@index')->name('ride');
 
 Route::get('/home','Admin\HomeController@index')->name('admin.index');
 Route::get('/about_us','Admin\HomeController@about_us')->name('admin.about_us');

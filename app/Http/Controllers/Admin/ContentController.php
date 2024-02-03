@@ -18,15 +18,17 @@ class ContentController extends Controller
         $types = $request->type;
         $imgs = $request->img;
 
-        foreach ($types as $key => $type) {
-            $content = Content::where('page', $page)->where('type', $key)->first();
-            if (!$content) {
-                $content = new Content();
-                $content->page = $page;
+        if ($types) {
+            foreach ($types as $key => $type) {
+                $content = Content::where('page', $page)->where('type', $key)->first();
+                if (!$content) {
+                    $content = new Content();
+                    $content->page = $page;
+                }
+                $content->type = $key;
+                $content->content = $type;
+                $content->save();
             }
-            $content->type = $key;
-            $content->content = $type;
-            $content->save();
         }
         if ($imgs) {
             foreach ($imgs as $key => $img) {
