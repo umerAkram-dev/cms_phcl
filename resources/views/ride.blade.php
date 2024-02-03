@@ -125,91 +125,54 @@
                 @for ($i = 1; $i < 4; $i++)
                     <div class="col-lg-4 col-md-4">
                         <div class="card service-card p-4 ml-5">
-                            <img src="{{ asset('frontend/ride/driver_experenice_1/driver_experenice_img_1.png') }}" alt="Natural Remedies" class="service-img">
-                            <h6 class="mt-2 head-4 service-header pt-3 pb-2">{{ $data['driver_experenice_heading_' . $i . ''] ?? null }}</h6>
+                            <img src="{{ asset('frontend/ride/driver_experenice_1/driver_experenice_img_1.png') }}"
+                                alt="Natural Remedies" class="service-img">
+                            <h6 class="mt-2 head-4 service-header pt-3 pb-2">
+                                {{ $data['driver_experenice_heading_' . $i . ''] ?? null }}</h6>
                             <p class="service-text">{{ $data['driver_experenice_' . $i . '_description'] ?? null }}</p>
                         </div>
                     </div>
                 @endfor
-
             </div>
         </div>
         <div class="container ps-lg-5 pe-lg-5 mt-lg-5 mt-md-5 mt-sm-2">
             <div class="row pt-lg-4 pt-md-4 pt-0">
-                <div class="col-lg-4 col-md-4">
-                    <div class="driver-interface-img-1">
-                        <img src="./assets/images/register.png" alt="register" class="float-start">
+                @for ($i = 1; $i < 4; $i++)
+                    <div class="col-lg-4 col-md-4">
+                        <div class="driver-interface-img{{ $i == 2 ? '' : '-1' }}">
+                            <img src="{{ asset('frontend/ride/driver_experenice/driver_experenice_bottom_img' . $i . '.png') }}"
+                                alt="register" class="float-start">
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="driver-interface-img">
-                        <img src="./assets/images/pickup-dropoff.png" alt="pickup-dropoff">
-                    </div>
-                </div>
-                <div class=" col-lg-4 col-md-4">
-                    <div class="driver-interface-img-1">
-                        <img src="./assets/images/get-rated.png" alt="get-rated" class="float-end">
-                    </div>
-                </div>
+                @endfor
             </div>
         </div>
         <div class="container mt-5">
             <div class="row">
                 <div class="page-header1 packages-header text-center">
                     <h3 class="head-2 easy-use">Easy to use</h3>
-                    <img src="./assets/images/Vector2.png" alt="vector overlay" class="vector-img vector-img1">
+                    <img src="{{ asset('frontend/ride/driver_information/driver_information.png') }}" alt="vector overlay"
+                        class="vector-img vector-img1">
                 </div>
             </div>
             <div class="row mt-lg-5 mt-md-5 mt-sm-0">
-                <div class="col-lg-3 col-md-6 col-12 mt-md-3">
-                    <div class="card driver-card">
-                        <img src="./assets/images/driver-information.png" alt="driver-information">
-                        <h4 class="mt-2 head-5 driver-exp-header pt-3 pb-2">Drivers Information</h4>
-                        <p class="driver-exp-text">Follow a hashtag growth total posts, videos and images.</p>
+                @for ($i = 1; $i < 5; $i++)
+                    <div class="col-lg-3 col-md-6 col-12 mt-md-3">
+                        <div class="card driver-card">
+                            <img src="{{ asset('frontend/ride/driver_information/driver_information_img_' . $i . '.png') }}"
+                                alt="driver-information">
+                            <h4 class="mt-2 head-5 driver-exp-header pt-3 pb-2">
+                                {{ $data['driver_information_' . $i . ''] ?? null }}</h4>
+                            <p class="driver-exp-text"> {{ $data['driver_information_' . $i . '_description'] ?? null }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12 mt-md-3">
-                    <div class="card driver-card">
-                        <img src="./assets/images/license-information.png" alt="license-information">
-                        <h4 class="mt-2 head-5 driver-exp-header pt-3 pb-2">Drivers License Information</h4>
-                        <p class="driver-exp-text">Identify the most influential people posting with your hashtag.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12 mt-md-3">
-                    <div class="card driver-card">
-                        <img src="./assets/images/insurance.png" alt="insurance">
-                        <h4 class="mt-2 head-5 driver-exp-header pt-3 pb-2">Insurance & Road Tax</h4>
-                        <p class="driver-exp-text">See the most influential posts on hashtag you
-                            are following on.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-12 mt-md-3">
-                    <div class="card driver-card ">
-                        <img src="./assets/images/vehicle-photos.png" alt="vehicle-photos">
-                        <h4 class="mt-2 head-5 driver-exp-header pt-3 pb-2">Vehicle Photos</h4>
-                        <p class="driver-exp-text">Visualize where people are posting using your
-                            hashtag made.</p>
-                    </div>
-                </div>
+                @endfor
+
             </div>
         </div>
         <div class="container mt-lg-5 mt-md-5 mt-sm-auto">
             <div class="row pe-lg-5 ps-lg-5 pe-md-5 ps-md-5  pt-5">
-                <p class="point-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                    incididunt ut
-                    labore
-                    et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea
-                    commodo consequat. Duis
-                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla
-                    pariatur.
-                    Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                    est
-                    laborum.</p>
+                <p class="point-text"> {{ $data['driver_information_bottom_description'] ?? null }}.</p>
             </div>
         </div>
     </section>
@@ -218,59 +181,31 @@
         <div class="container">
             <h6 class="text-center head-1 main-heading">Float Packages</h6>
             <div class="row mt-lg-5 mt-md-5 mt-sm-1">
-                <div class="col-lg-4 col-md-4">
-                    <div class="card float-card text-center">
-                        <h6 class="float-package-title head-4" style="color: #034f75">Basic</h6>
-                        <h6 class="head" style="color: #034f75"><span>&#163;</span>7</h6>
-                        <h6 style="color: #81A7BA;">Once off</h6>
-                        <ul class="text-start">
-                            <li style="color: #034f75;"><img src="./assets/images/tick.png" alt=""
-                                    class="me-4">3 Days
-                            </li>
-                            <li style="color: #034f75"><img src="./assets/images/tick.png" alt=""
-                                    class="me-4">Weekends
-                                only</li>
-                        </ul>
-                        <div class="float-logo m-auto">
-                            <img src="./assets/images/float-package-logo-black.png" alt="logo-back" class="float-logo">
+
+                @for ($i = 1; $i < 4; $i++)
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card float-card{{ $i == 2 ? '-advance text-center text-white' : ' text-center' }}">
+                            <h6 class="float-package-title{{ $i == 2 ? '-advance' : '' }} head-4"
+                                {{ $i == 2 ? '' : 'style="color: #034f75"' }}> {{ $data['plan_name_' . $i . ''] ?? null }}
+                            </h6>
+                            <h6 class="head" {{ $i == 2 ? '' : 'style="color: #034f75"' }}>
+                                <span>&#163;</span>{{ $data['pricing_' . $i . ''] ?? null }}</h6>
+                            <h6 style="color: #81A7BA;">{{ $data['pricing_description_' . $i . ''] ?? null }}</h6>
+                            <ul class="text-start">
+                                <li style="color: #034f75;"><img src="./assets/images/tick.png" alt=""
+                                        class="me-4">{{ $data['features_1'] ?? null }}
+                                </li>
+                                <li style="color: #034f75"><img src="./assets/images/tick.png" alt=""
+                                        class="me-4">{{ $data['features_2'] ?? null }}</li>
+                            </ul>
+                            <div class="float-logo m-auto">
+                                <img src="{{ asset('frontend/ride/pricing_plan_' . $i . '/pricing_plan' . $i . '.png') }}"
+                                    alt="logo-back" class="float-logo">
+                            </div>
+                            <h6 class="mb-5 head-3 swift">{{ $data['features_1'] ?? null }}</h6>
                         </div>
-                        <h6 class="mb-5 head-3 swift">Swift Ride Pro</h6>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 text-center">
-                    <div class="card float-card-advance text-center text-white">
-                        <h6 class="float-package-title-advance head-4">Advance</h6>
-                        <h6 class="head"><span>&#163;</span>9</h6>
-                        <h6 style="color: #81A7BA;">User/Month</h6>
-                        <ul class="text-start">
-                            <li><img src="./assets/images/tick.png" alt="" class="me-4">7 Days</li>
-                            <li><img src="./assets/images/tick.png" alt="" class="me-4">Weekend Inclusive</li>
-                        </ul>
-                        <div class="float-logo m-auto">
-                            <img src="./assets/images/float-package-logo-white.png" alt="logo-white">
-                        </div>
-                        <h6 class="mb-5 head-3 swift">Swift Ride Pro</h6>
-                    </div>
-                </div>
-                <div class=" col-lg-4 col-md-4 text-center">
-                    <div class="card float-card text-center">
-                        <h6 class="float-package-title head-4" style="color: #034f75">Premium</h6>
-                        <h6 class="head" style="color: #034f75"><span>&#163;</span>12</h6>
-                        <h6 style="color: #81A7BA;">User/Month</h6>
-                        <ul class="text-start">
-                            <li style="color: #034f75"><img src="./assets/images/tick.png" alt=""
-                                    class="me-4">14 Days
-                            </li>
-                            <li style="color: #034f75"><img src="./assets/images/tick.png" alt=""
-                                    class="me-4">Weekend
-                                Inclusive</li>
-                        </ul>
-                        <div class="float-logo m-auto">
-                            <img src="./assets/images/float-package-logo-black.png" alt="logo-back">
-                        </div>
-                        <h6 class="mb-5 head-3 swift">Swift Ride Pro</h6>
-                    </div>
-                </div>
+                @endfor
             </div>
         </div>
     </section>

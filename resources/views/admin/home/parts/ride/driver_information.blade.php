@@ -91,8 +91,8 @@
                     <div class="row mb-3">
                         <label class="col-12">Bottom Description</label>
                         <div class="col-12">
-                            <textarea class="form-control" name="type[driver_information_bottom_{{ $i }}_description]" required
-                                style="height: 100px">{{ $data['driver_information_bottom_' . $i . '_description'] ?? null }}</textarea>
+                            <textarea class="form-control" name="type[driver_information_bottom_description]" required
+                                style="height: 100px">{{ $data['driver_information_bottom_description'] ?? null }}</textarea>
                         </div>
                     </div>
                     <div class="row mb-3">
