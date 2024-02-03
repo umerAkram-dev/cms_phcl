@@ -1,22 +1,20 @@
 @extends('layouts.app')
 @section('css_after')
-<style>
-    .navbar_bg {
-        background-image: url('{{ asset('frontend/ride/header/header_background_img.png') }}') !important;
-    }
-</style>
+    <style>
+        .navbar_bg {
+            background-image: url('{{ asset('frontend/ride/header/header_background_img.png') }}') !important;
+        }
+    </style>
 @endsection
 @section('content')
+    {{-- @dd($data) --}}
     <header class="header">
-        <div class="container">
+        <div class="container navbar_bg">
             <nav class="navbar navbar-expand-lg">
                 @include('layouts.partials.navbar')
             </nav>
             <div class="page-heading">
-                <h6 class="head-2 page-header">
-                    Your Trusted Travel Partner, <br>
-                    Ride in Comfort
-                </h6>
+                <h6 class="head-2 page-header">{{ $data['header_heading'] ?? null }}</h6>
             </div>
         </div>
     </header>
@@ -27,22 +25,15 @@
                 <div class="container">
                     <div class="about">
                         <h6 class="head-2 about-header">About Swift Ride Pro</h6>
-                        <p class="about-text">
-                            PLorem ipsum dolor sit amet consectetur. At velit ut arcu massa nisi lorem ac. Feugiat amet
-                            pharetra semper ut facilisi
-                            sit adipiscing eget. Enim et facilisis Lorem ipsum dolor sit amet consectetur. At velit ut
-                            arcu massa nisi lorem ac.
-                            Feugiat amet pharetra semper ut facilisi sit adipiscing eget. Enim et facilisis Lorem ipsum
-                            dolor sit amet consectetur.
-                            At velit ut arcu massa nisi lorem ac. Feugiat amet pharetra semper ut
-                        </p>
+                        <p class="about-text">{{ $data['about_ride_description'] ?? null }}</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-12">
                 <div class="banner-img">
                     <div class="">
-                        <img src="./assets/images/Banner Image 1.png" alt="banner-image" class="img-fluid">
+                        <img src="{{ asset('frontend/ride/about/about_ride_background_img.png') }}" alt="banner-image"
+                            class="img-fluid">
                     </div>
                 </div>
             </div>
@@ -52,94 +43,43 @@
     <section class="service pb-lg-5 pb-md-2 pb-0">
         <div class="container service-cont ps-lg-5 pe-lg-5">
             <div class="overlay-img">
-                <img src="./assets/images/Navigation-pana.png" alt="overlay">
+                <img src="{{ asset('frontend/ride/about/about_ride_img_2.png') }}" alt="overlay">
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <div class="card service-card p-md-4 p-3 ml-5">
-                        <img src="./assets/images/Group 9422.png" alt="Affordable Rides" class="service-img">
-                        <h6 class="mt-2 mt-sm-0 head-4 service-header pt-3 pb-2">Affordable Rides</h6>
-                        <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-                            tempor
-                            incididunt ut
-                            labore</p>
+                @for ($i = 1; $i < 4; $i++)
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card service-card p-md-4 p-3 ml-5">
+                            <img src="./assets/images/Group 9422.png" alt="Affordable Rides" class="service-img">
+                            <h6 class="mt-2 mt-sm-0 head-4 service-header pt-3 pb-2">{{ $data['ride_heading_1'] ?? null }}
+                            </h6>
+                            <p class="service-text">{{ $data['ride_1_description'] ?? null }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="card service-card p-md-4 p-3">
-                        <img src="./assets/images/Group 9422 (1).png" alt="Multiple Rides" class="service-img">
-                        <h6 class="mt-2 mt-sm-0 head-4 service-header pt-3 pb-2">Multiple Rides</h6>
-                        <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-                            tempor
-                            incididunt ut
-                            labore</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="card service-card p-md-4 p-3">
-                        <img src="./assets/images/Group 9422 (2).png" alt="Reliable" class="service-img">
-                        <h6 class="mt-2 mt-sm-0 head-4 service-header pt-3 pb-2">Reliable</h6>
-                        <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-                            tempor
-                            incididunt ut
-                            labore</p>
-                    </div>
-                </div>
+                @endfor
             </div>
         </div>
         <div class="container ps-lg-5 pe-lg-5 mt-lg-5 mt-md-4 mt-2">
             <div class="row pt-4">
-                <div class="col-lg-4 col-md-4 text-sm-center">
-                    <div class="mobile-interface-img">
-                        <img src="./assets/images/Clip path group 1.png" alt="mobile interface 1"
-                            class="float-lg-end float-md-end">
+                @for ($i = 1; $i < 4; $i++)
+                    <div class="col-lg-4 col-md-4 text-sm-center">
+                        <div class="mobile-interface-img{{ $i == 1 ? '' : '-' . $i }}">
+                            <img src="./assets/images/Clip path group 1.png" alt="mobile interface 1"
+                                class="float-lg-end float-md-end">
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 text-sm-center">
-                    <div class="mobile-interface-img-2">
-                        <img src="./assets/images/Clip path group 2.png" alt="mobile interface 2"
-                            class="float-lg-end float-md-end">
-                    </div>
-                </div>
-                <div class=" col-lg-4 col-md-4 text-sm-center">
-                    <div class="mobile-interface-img-3">
-                        <img src="./assets/images/Clip path group 3.png" alt="mobile interface 3"
-                            class="float-lg-end float-md-end">
-                    </div>
-                </div>
+                @endfor
             </div>
             <div class="row mt-5">
-                <div class="col-lg-4 col-md-4 d-flex justify-content-md-center align-items-center">
-                    <h6 class="number head-4">1</h6>
-                    <h6 class="head-4 point">Enter Your Destination</h6>
-                </div>
-                <div class="col-lg-4 col-md-4 d-flex justify-content-md-center align-items-center">
-                    <h6 class="number head-4">2</h6>
-                    <h6 class="head-4 point">Select Your Ride Class</h6>
-                </div>
-                <div class="col-lg-4 col-md-4 d-flex justify-content-md-center align-items-center">
-                    <h6 class="number head-4">3</h6>
-                    <h6 class="head-4 point">Review Your Ride</h6>
-                </div>
+                @for ($i = 1; $i < 4; $i++)
+                    <div class="col-lg-4 col-md-4 d-flex justify-content-md-center align-items-center">
+                        <h6 class="number head-4">{{ $i }}</h6>
+                        <h6 class="head-4 point">{{ $data['service_heading_' . $i . ''] ?? null }}</h6>
+                    </div>
+                @endfor
             </div>
         </div>
         <div class="container mt-3">
-            <div class="row pe-lg-5 ps-lg-5 pt-3">
-                <p class="point-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                    incididunt ut
-                    labore
-                    et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip
-                    ex ea
-                    commodo consequat. Duis
-                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla
-                    pariatur.
-                    Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                    est
-                    laborum.</p>
+            <div class="row pe-lg-5 ps-lg-5 pt-3">{{ $data['service_description'] ?? null }}</p>
             </div>
         </div>
     </section>
@@ -149,50 +89,29 @@
             <div class="row pb-sm-0 mb-sm-0">
                 <div class="packages-header text-center">
                     <h6 class="head-3 packages-header">Our Packages</h6>
-                    <img src="./assets/images/Vector.png" alt="vector overlay" class="vector-img">
+                    <img src='{{ asset('frontend/ride/package/gallery_img.png') }}' alt="vector overlay"
+                        class="vector-img">
                 </div>
             </div>
             <div class="row mt-lg-5 mt-md-5 mt-2">
-                <div class="col-lg-4 col-md-4">
-                    <div class="card package-card">
-                        <img src="./assets/images/Rectangle 24.png" alt="" class="package-img">
-                        <h6 class="package-title head-4 packages-sub-header">Economy</h6>
-                        <ul>
-                            <li><img src="./assets/images/Ellipse 6.png" alt="" class="me-4">Budget Friendly</li>
-                            <li><img src="./assets/images/Ellipse 6.png" alt="" class="me-4">Insurance Included
-                            </li>
-                        </ul>
+
+                @for ($i = 1; $i < 4; $i++)
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card package-card">
+                            <img src="{{ asset('frontend/ride/package_' . $i . '/our_package_img_' . $i . '.png') }}"
+                                alt="" class="package-img">
+                            <h6 class="package-title head-4 packages-sub-header">
+                                {{ $data['our_package_heading_' . $i . ''] ?? null }}</h6>
+                            <ul>
+                                <li><img src="./assets/images/Ellipse 6.png" alt="" class="me-4">Budget Friendly
+                                </li>
+                                <li><img src="./assets/images/Ellipse 6.png" alt="" class="me-4">Insurance
+                                    Included
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="card package-card">
-                        <img src="./assets/images/Rectangle 15.png" alt="" class="package-img">
-                        <h6 class="package-title head-4 packages-sub-header">Business</h6>
-                        <ul>
-                            <li><img src="./assets/images/Ellipse 6.png" alt="" class="me-4">Extra Baggage</li>
-                            <li><img src="./assets/images/Ellipse 6.png" alt="" class="me-4">Onboard
-                                Entertainment</li>
-                            <li><img src="./assets/images/Ellipse 6.png" alt="" class="me-4">Upto 5 people
-                                Capacity</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="card package-card">
-                        <img src="./assets/images/Rectangle 27.png" alt="" class="package-img">
-                        <h6 class="package-title head-4 packages-sub-header">VIP</h6>
-                        <ul>
-                            <li><img src="./assets/images/Ellipse 6.png" alt="" class="me-4">Exta large Room
-                            </li>
-                            <li><img src="./assets/images/Ellipse 6.png" alt="" class="me-4">Onboard
-                                Entertainment</li>
-                            <li><img src="./assets/images/Ellipse 6.png" alt="" class="me-4">Appointment
-                                Booking</li>
-                            <li><img src="./assets/images/Ellipse 6.png" alt="" class="me-4">Personnel
-                                Concierge</li>
-                        </ul>
-                    </div>
-                </div>
+                @endfor
             </div>
         </div>
     </section>
@@ -200,39 +119,19 @@
     <section class="driver-experenice pb-5">
         <div class="container driver-experience-cont ps-lg-5 pe-lg-5">
             <div class="driver-experience-overlay">
-                <img src="./assets/images/driver-experience-overlay.png" alt="overlay">
+                <img src="{{ asset('frontend/ride/driver_experenice/driver_experenice.png') }}" alt="overlay">
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <div class="card service-card p-4 ml-5">
-                        <img src="./assets/images/natural-remedies.png" alt="Natural Remedies" class="service-img">
-                        <h6 class="mt-2 head-4 service-header pt-3 pb-2">Natural Remedies</h6>
-                        <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-                            tempor
-                            incididunt ut
-                            labore</p>
+                @for ($i = 1; $i < 4; $i++)
+                    <div class="col-lg-4 col-md-4">
+                        <div class="card service-card p-4 ml-5">
+                            <img src="{{ asset('frontend/ride/driver_experenice_1/driver_experenice_img_1.png') }}" alt="Natural Remedies" class="service-img">
+                            <h6 class="mt-2 head-4 service-header pt-3 pb-2">{{ $data['driver_experenice_heading_' . $i . ''] ?? null }}</h6>
+                            <p class="service-text">{{ $data['driver_experenice_' . $i . '_description'] ?? null }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="card service-card p-4">
-                        <img src="./assets/images/disease-prevention.png" alt="Disease Prevention" class="service-img">
-                        <h6 class="mt-2 head-4 service-header pt-3 pb-2">Disease Prevention</h6>
-                        <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-                            tempor
-                            incididunt ut
-                            labore</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="card service-card p-4">
-                        <img src="./assets/images/seminars.png" alt="Seminars" class="service-img">
-                        <h6 class="mt-2 head-4 service-header pt-3 pb-2">Seminars</h6>
-                        <p class="service-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-                            tempor
-                            incididunt ut
-                            labore</p>
-                    </div>
-                </div>
+                @endfor
+
             </div>
         </div>
         <div class="container ps-lg-5 pe-lg-5 mt-lg-5 mt-md-5 mt-sm-2">

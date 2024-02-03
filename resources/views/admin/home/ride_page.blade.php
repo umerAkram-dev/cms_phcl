@@ -14,11 +14,11 @@
                 @include('admin.home.parts.ride.header')
                 @include('admin.home.parts.ride.about_ride')
                 @include('admin.home.parts.ride.rides')
-                {{-- @include('admin.home.parts.ride.gallery')
-                @include('admin.home.parts.ride.traction')
-                @include('admin.home.parts.ride.team')
+                @include('admin.home.parts.ride.our_package')
+                @include('admin.home.parts.ride.driver_experenice')
+                @include('admin.home.parts.ride.driver_information')
                 @include('admin.home.parts.ride.testimonies')
-                @include('admin.home.parts.ride.donation') --}}
+                @include('admin.home.parts.ride.featured')
             </div>
         </section>
     </main>
