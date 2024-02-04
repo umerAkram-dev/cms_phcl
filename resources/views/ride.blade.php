@@ -1,20 +1,50 @@
-@extends('layouts.app')
-@section('css_after')
-    <style>
-        .navbar_bg {
-            background-image: url('{{ asset('frontend/ride/header/header_background_img.png') }}') !important;
-        }
-    </style>
-@endsection
-@section('content')
-    {{-- @dd($data) --}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ asset('rides_frontend/assets/styles/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d0a01f8990.js" crossorigin="anonymous"></script>
+    <link href="https://db.onlinewebfonts.com/c/b30be3daa0818e355edb82922ed035b5?family=STHupo" rel="stylesheet">
+</head>
+
+<body>
     <header class="header">
-        <div class="container navbar_bg">
+        <div class="container">
             <nav class="navbar navbar-expand-lg">
-                @include('layouts.partials.navbar')
+                <a class="navbar-brand nav_link mt-3" href="#"><img src="{{ asset('assets/images/swift-logo.png') }}"
+                        alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link nav_link" aria-current="page" href="#">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav_link" href="#">CLASSES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav_link" aria-current="page" href="#">LIFESTYLE CHANGES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav_link" href="#">NATURAL REMEDIES</a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
             <div class="page-heading">
-                <h6 class="head-2 page-header">{{ $data['header_heading'] ?? null }}</h6>
+                <h6 class="head-2 page-header">
+                    Your Trusted Travel Partner, <br>
+                    Ride in Comfort
+                </h6>
             </div>
         </div>
     </header>
@@ -151,8 +181,8 @@
             <div class="row">
                 <div class="page-header1 packages-header text-center">
                     <h3 class="head-2 easy-use">Easy to use</h3>
-                    <img src="{{ asset('frontend/ride/driver_information/driver_information.png') }}" alt="vector overlay"
-                        class="vector-img vector-img1">
+                    <img src="{{ asset('frontend/ride/driver_information/driver_information.png') }}"
+                        alt="vector overlay" class="vector-img vector-img1">
                 </div>
             </div>
             <div class="row mt-lg-5 mt-md-5 mt-sm-0">
@@ -163,7 +193,8 @@
                                 alt="driver-information">
                             <h4 class="mt-2 head-5 driver-exp-header pt-3 pb-2">
                                 {{ $data['driver_information_' . $i . ''] ?? null }}</h4>
-                            <p class="driver-exp-text"> {{ $data['driver_information_' . $i . '_description'] ?? null }}</p>
+                            <p class="driver-exp-text"> {{ $data['driver_information_' . $i . '_description'] ?? null }}
+                            </p>
                         </div>
                     </div>
                 @endfor
@@ -189,7 +220,8 @@
                                 {{ $i == 2 ? '' : 'style="color: #034f75"' }}> {{ $data['plan_name_' . $i . ''] ?? null }}
                             </h6>
                             <h6 class="head" {{ $i == 2 ? '' : 'style="color: #034f75"' }}>
-                                <span>&#163;</span>{{ $data['pricing_' . $i . ''] ?? null }}</h6>
+                                <span>&#163;</span>{{ $data['pricing_' . $i . ''] ?? null }}
+                            </h6>
                             <h6 style="color: #81A7BA;">{{ $data['pricing_description_' . $i . ''] ?? null }}</h6>
                             <ul class="text-start">
                                 <li style="color: #034f75;"><img src="./assets/images/tick.png" alt=""
@@ -276,4 +308,51 @@
             </div>
         </div>
     </section>
-@endsection
+
+    <footor>
+        <div class="footor-link">
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="pchl-text">
+                            <h6 class="head-3">PCHL <span class="hyper-img"><img src="./assets/images/plus-logo.png"
+                                        alt=""></span>
+                            </h6>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur. Adipiscing quis mauris bibendum vitae mauris et
+                            porttitor. Pellentesque.</p>
+                        <div class="social-icons pb-lg-0 pb-md-0 pb-3">
+                            <a href="#" class="social-link"><img src="./assets/images/youtube.png" alt=""></a>
+                            <a href="#" class="social-link"><img src="./assets/images/facebook.png" alt=""></a>
+                            <a href="#" class="social-link"><img src="./assets/images/whatapp.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="text-lg-end text-md-end text-sm-center">
+                            <div class="contact-info">
+                                <ul>
+                                    <li>
+                                        <h6 class="head-5 text-lg-end text-md-end text-sm-center">Contact Info</h6>
+                                    </li>
+                                    <li><a href="#">+45678765434567</a></li>
+                                    <li><a href="#">Lorem ipsum dolor</a></li>
+                                    <li><a href="#">Lorem ipsum dolor</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="text-white">
+                <div class="row text-center text-white">
+                    <p class="pt-3">Powered by PivotPoint - Copyright © Swift Ride Pro 2024</p>
+                </div>
+            </div>
+        </div>
+    </footor>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

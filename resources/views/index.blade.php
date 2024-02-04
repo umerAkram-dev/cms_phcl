@@ -1,8 +1,25 @@
 @extends('layouts.app')
 @section('css_after')
     <style>
-        .navbar_bg {
-            background-image: url('{{ asset('frontend/home/header/header_background_img.png') }}') !important;
+        .navbar_bg::before,
+        .navbar_bg::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+        .navbar_bg::before {
+            background: url('{{ asset('header_bg.png') }}') center/cover no-repeat;
+            z-index: -1;
+            height: 41.7em;
+        }
+
+        .navbar_bg::after {
+            background: url('{{ asset('frontend/home/header/header_background_img.png') }}') center/cover no-repeat;
+            z-index: -2;
+            height: 41.5em;
         }
     </style>
 @endsection
@@ -89,7 +106,7 @@
                                                     src="{{ asset('frontend/' . $page . '/our_service_' . $i . '/service_box_img_' . $i . '.png') }}"
                                                     alt="">
                                                 <h3 class="cooking_classes_h3 mb-3 mt-3">
-                                                    {{ $data['our_service_heading_' . $i ] ?? null }}</h3>
+                                                    {{ $data['our_service_heading_' . $i] ?? null }}</h3>
                                                 <p class="cooking_classes_p mb-0">
                                                     {{ $data['our_services_' . $i . '_description'] ?? null }}</p>
                                             </div>
@@ -304,7 +321,7 @@
                 </div>
                 <div class="row pb-lg-5">
                     @for ($i = 2; $i < 4; $i++)
-                        <div class="col-lg-5 col-md-6 col-12 {{ $i == 3 ? 'ps-lg-5 padding_top_testimonial':'' }}">
+                        <div class="col-lg-5 col-md-6 col-12 {{ $i == 3 ? 'ps-lg-5 padding_top_testimonial' : '' }}">
                             <div class="comment">
                                 <div class="rating d-flex align-items-end">
                                     <img src="./assets/images/“.png" class="pe-2" alt="">
@@ -314,18 +331,20 @@
                                     <i class="fa-solid fa-star pe-2"></i>
                                     <i class="fa-solid fa-star"></i>
                                 </div>
-                                <p class="ps-lg-5 testimonial_review pt-4 pb-2">{{ $data['our_client_1_description'] ?? null }}
-                                    {{ $data['our_client_'.$i.'_description'] ?? null }}
+                                <p class="ps-lg-5 testimonial_review pt-4 pb-2">
+                                    {{ $data['our_client_1_description'] ?? null }}
+                                    {{ $data['our_client_' . $i . '_description'] ?? null }}
                                 </p>
                             </div>
                             <div class="row ps-lg-5">
                                 <div class="col-lg-2 col-md-2">
-                                    <img src="{{ asset('frontend/home/our_client_'.$i.'/our_client_img_'.$i.'.png') }}" alt=""
-                                        class="user-pic mb-lg-0 mb-md-3 mb-3">
+                                    <img src="{{ asset('frontend/home/our_client_' . $i . '/our_client_img_' . $i . '.png') }}"
+                                        alt="" class="user-pic mb-lg-0 mb-md-3 mb-3">
                                 </div>
                                 <div class="col-lg-10 col-md-10">
-                                    <h6 class="user_name_testimonial">{{ $data['our_client_name_'.$i.''] ?? null }}</h6>
-                                    <p class="testimonial_review_designation">{{ $data['our_client_'.$i.'_role'] ?? null }}</p>
+                                    <h6 class="user_name_testimonial">{{ $data['our_client_name_' . $i . ''] ?? null }}</h6>
+                                    <p class="testimonial_review_designation">
+                                        {{ $data['our_client_' . $i . '_role'] ?? null }}</p>
                                 </div>
                             </div>
                         </div>
@@ -347,7 +366,7 @@
     </section>
 
     <!-- Progress bar Section  -->
-{{-- @dd($data) --}}
+    {{-- @dd($data) --}}
     <section>
         <div class="container">
             <div class="row pb-4">

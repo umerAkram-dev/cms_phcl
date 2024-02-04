@@ -58,7 +58,7 @@
                                         <div class="col-12">
                                             <input type="text" name="type[driver_experenice_{{ $i }}]"
                                                 class="form-control"
-                                                value="{{ $data['driver_experenice_heading_' . $i . ''] ?? null }}">
+                                                value="{{ $data['driver_experenice_' . $i] ?? null }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
