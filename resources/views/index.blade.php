@@ -10,6 +10,7 @@
             bottom: 0;
             left: 0;
         }
+
         .navbar_bg::before {
             background: url('{{ asset('header_bg.png') }}') center/cover no-repeat;
             z-index: -1;
@@ -20,6 +21,30 @@
             background: url('{{ asset('frontend/home/header/header_background_img.png') }}') center/cover no-repeat;
             z-index: -2;
             height: 41.5em;
+        }
+
+        .laptop-container {
+            position: relative;
+            width: 100%;
+            /* Adjust the width as needed */
+        }
+
+        .laptop-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .laptop-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 15%;
+            left: 12%;
+            width: 76%;
+            height: 68%;
         }
     </style>
 @endsection
@@ -71,8 +96,20 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="text-center">
-                            <img src="{{ asset('frontend/' . $page . '/about/about_pchl_background_img.png') }}"
-                                class="img-fluid about_phcl_img" alt="">
+                            <div class="laptop-container">
+                                <div class="laptop-image">
+                                    <!-- Image of the laptop -->
+                                    <img src="https://static-cse.canva.com/_next/static/assets/device_w1200xh710_c2cb44b42aa70cf3768d9793233c65cb62701c17d2d35a0e15b21c61d789f574.png"
+                                        alt="Laptop">
+
+                                    <!-- YouTube video iframe embedded inside the laptop screen -->
+                                    <div class="video-container">
+                                        <iframe width="100%" height="100%"
+                                            src="https://www.youtube.com/embed/KqisOvcs9z0?rel=0&modestbranding=1&enablejsapi=1&autoplay=0&controls=1&mute=1&loop=0&cc_load_policy=0&origin=https%3A%2F%2Fwww.canva.com"
+                                            frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -342,7 +379,8 @@
                                         alt="" class="user-pic mb-lg-0 mb-md-3 mb-3">
                                 </div>
                                 <div class="col-lg-10 col-md-10">
-                                    <h6 class="user_name_testimonial">{{ $data['our_client_name_' . $i . ''] ?? null }}</h6>
+                                    <h6 class="user_name_testimonial">{{ $data['our_client_name_' . $i . ''] ?? null }}
+                                    </h6>
                                     <p class="testimonial_review_designation">
                                         {{ $data['our_client_' . $i . '_role'] ?? null }}</p>
                                 </div>
