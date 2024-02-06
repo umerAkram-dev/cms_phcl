@@ -13,6 +13,16 @@
 </head>
 
 <body>
+@extends('layouts.app')
+@section('css_after')
+    <style>
+        .navbar_bg {
+            background-image: url('{{ asset('frontend/ride/header/header_background_img.png') }}') !important;
+        }
+    </style>
+@endsection
+@section('content')
+{{-- @dd($data) --}}
     <header class="header">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
@@ -244,15 +254,18 @@
 
     <section class="testimonials">
         <div class="container">
-            <div class="row mb-3">
-                <div class="testimonies-text text-center">
-                    <h6 class="head-1 main-heading">Testimonies</h6>
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <h3 class="cooking_classes_h3 pt-lg-5 pb-0">Testimonies</h3>
+                    </div>
                 </div>
             </div>
             <div class="row pt-5 pb-lg-5">
                 <div class="col-lg-6 col-md-6 d-flex justify-content-start align-items-center">
-                    <h6 class="waht_people_say">What People Say About Us,<br> Hear it from them</h6>
+                    <h6 class="waht_people_say">{{ $data['testimonies_heading'] ?? null }}</h6>
                 </div>
+
                 <div class="col-lg-6 col-md-6">
                     <div class="comment">
                         <div class="rating d-flex align-items-end">
@@ -264,20 +277,17 @@
                             <i class="fa-solid fa-star"></i>
                         </div>
                         <p class="ps-lg-5 testimonial_review pt-4 pb-2">
-                            “With Ehya, we’re able to easily track our performance in full detail. It’s become an
-                            essential
-                            tool for us to grow and
-                            engage with our audience.”
+                            {{ $data['our_client_description'] ?? null }}
                         </p>
                     </div>
                     <div class="row ps-lg-5">
                         <div class="col-lg-2 col-md-2">
-                            <img src="./assets/images/user-photo.png" alt=""
+                            <img src="{{ asset('frontend/home/our_client/our_client_img.png') }}" alt=""
                                 class="user-pic mb-lg-0 mb-md-3 mb-3">
                         </div>
                         <div class="col-lg-10 col-md-10">
-                            <h6 class="user_name_testimonial">Jaquon Hart</h6>
-                            <p class="testimonial_review_designation">Digital Marketing Executive, Hypebeast</p>
+                            <h6 class="user_name_testimonial">{{ $data['our_client_name'] ?? null }}</h6>
+                            <p class="testimonial_review_designation">{{ $data['our_client_role'] ?? null }}</p>
                         </div>
                     </div>
                 </div>
@@ -293,15 +303,17 @@
                 <div class="row d-flex justify-content-center">
                     <div class="width_footer">
                         <div class="d-flex justify-content-between">
-                            <div class="">
+                            @for ($i = 1; $i < 4; $i++)
+                                <div class="">
+                                    <img src="{{asset('frontend/ride/featured/featured_img_'.$i.'.png')}}" alt="" class="azsic-logo">
+                                </div>
+                            @endfor
+                            {{-- <div class="">
                                 <img src="./assets/images/azsic-logo.png" alt="" class="azsic-logo">
                             </div>
                             <div class="">
                                 <img src="./assets/images/azsic-logo.png" alt="" class="azsic-logo">
-                            </div>
-                            <div class="">
-                                <img src="./assets/images/azsic-logo.png" alt="" class="azsic-logo">
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

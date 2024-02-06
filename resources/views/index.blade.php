@@ -346,7 +346,7 @@
                         </div>
                         <div class="row ps-lg-5">
                             <div class="col-lg-2 col-md-2">
-                                <img src="{{ asset('frontend/home/our_client_1/our_client_img_1.png') }}" alt=""
+                                <img src="{{asset('frontend/home/our_client_1/our_client_img_1.png')}}" alt=""
                                     class="user-pic mb-lg-0 mb-md-3 mb-3">
                             </div>
                             <div class="col-lg-10 col-md-10">
@@ -397,7 +397,7 @@
     <section>
         <div>
             <div class="text-center pt-lg-5 mt-lg-4">
-                <img src="./assets/images/Group 9.png" alt="">
+                <img src="{{asset('frontend/home/donation/donation_img.png')}}" alt="">
                 <h3 class="cooking_classes_h3 py-lg-5 py-md-4 py-3">Your donations help countless <br> lives </h3>
             </div>
         </div>
