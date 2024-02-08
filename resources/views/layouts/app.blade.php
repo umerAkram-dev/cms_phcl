@@ -15,6 +15,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d0a01f8990.js" crossorigin="anonymous"></script>
     @yield('css_after')
+    <style>
+        .footer_copy_right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 50px 0px 60px 0px;
+        }
+    </style>
 </head>
 
 <body>

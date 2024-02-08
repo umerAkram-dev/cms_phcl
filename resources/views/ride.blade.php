@@ -15,15 +15,59 @@
 <body>
 @extends('layouts.app')
 @section('css_after')
+
     <style>
-        .navbar_bg {
-            background-image: url('{{ asset('frontend/ride/header/header_background_img.png') }}') !important;
+        .navbar_bg::before,
+        .navbar_bg::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .navbar_bg::before {
+            background: url('{{ asset('header_bg.png') }}') center/cover no-repeat;
+            z-index: -1;
+            height: 41.7em;
+        }
+
+        .navbar_bg::after {
+            background: url('{{ asset('frontend/about_us/about_pchl_1/about_pchl_img_1.png') }}') center/cover no-repeat !important;
+            z-index: -2;
+            height: 41.5em;
+        }
+
+        .laptop-container {
+            position: relative;
+            width: 100%;
+            /* Adjust the width as needed */
+        }
+
+        .laptop-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .laptop-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 15%;
+            left: 12%;
+            width: 76%;
+            height: 68%;
         }
     </style>
+
 @endsection
 @section('content')
 {{-- @dd($data) --}}
-    <header class="header">
+    <header class=" navbar_bg">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand nav_link mt-3" href="#"><img src="{{ asset('assets/images/swift-logo.png') }}"

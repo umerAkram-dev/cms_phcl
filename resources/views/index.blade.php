@@ -104,8 +104,7 @@
 
                                     <!-- YouTube video iframe embedded inside the laptop screen -->
                                     <div class="video-container">
-                                        <iframe width="100%" height="100%"
-                                            src="https://www.youtube.com/embed/KqisOvcs9z0?rel=0&modestbranding=1&enablejsapi=1&autoplay=0&controls=1&mute=1&loop=0&cc_load_policy=0&origin=https%3A%2F%2Fwww.canva.com"
+                                        <iframe width="100%" height="100%" src="{{ $data['about_pchl_link'] ?? null }}"
                                             frameborder="0" allowfullscreen></iframe>
                                     </div>
                                 </div>
@@ -197,16 +196,18 @@
                     <div class="row">
                         @for ($i = 1; $i < 5; $i++)
                             <div class="col-lg-3 col-md-3 col-12">
-                                <div class="services_box">
-                                    <div class="text-center">
-                                        <img src="{{ asset('frontend/' . $page . '/our_traction_' . $i . '/our_traction_img_' . $i . '.png') }}"
-                                            alt="">
-                                        <h3 class="traction_h3 mb-3 mt-3">
-                                            {{ $data['our_traction_heading_' . $i . ''] ?? null }}</h3>
-                                        <p class="traction_count mb-0">
-                                            {{ $data['our_traction_' . $i . '_description'] ?? null }}</p>
+                                <a href="{{ $data['our_traction_link'] ?? null }}" style="text-decoration: none;">
+                                    <div class="services_box">
+                                        <div class="text-center">
+                                            <img src="{{ asset('frontend/' . $page . '/our_traction_' . $i . '/our_traction_img_' . $i . '.png') }}"
+                                                alt="">
+                                            <h3 class="traction_h3 mb-3 mt-3">
+                                                {{ $data['our_traction_heading_' . $i . ''] ?? null }}</h3>
+                                            <p class="traction_count mb-0">
+                                                {{ $data['our_traction_' . $i . '_description'] ?? null }}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         @endfor
                         {{-- <div class="col-lg-3 col-md-3 col-12">
@@ -346,7 +347,7 @@
                         </div>
                         <div class="row ps-lg-5">
                             <div class="col-lg-2 col-md-2">
-                                <img src="{{asset('frontend/home/our_client_1/our_client_img_1.png')}}" alt=""
+                                <img src="{{ asset('frontend/home/our_client_1/our_client_img_1.png') }}" alt=""
                                     class="user-pic mb-lg-0 mb-md-3 mb-3">
                             </div>
                             <div class="col-lg-10 col-md-10">
@@ -397,7 +398,7 @@
     <section>
         <div>
             <div class="text-center pt-lg-5 mt-lg-4">
-                <img src="{{asset('frontend/home/donation/donation_img.png')}}" alt="">
+                <img src="{{ asset('frontend/home/donation/donation_img.png') }}" alt="">
                 <h3 class="cooking_classes_h3 py-lg-5 py-md-4 py-3">Your donations help countless <br> lives </h3>
             </div>
         </div>
@@ -411,7 +412,8 @@
                 <div class="col-12">
                     <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="18"
                         aria-valuemin="0" aria-valuemax="100" style="height: 33px;">
-                        <div class="progress-bar progress_gray_bg" style="width: 18%">18%</div>
+                        <div class="progress-bar progress_gray_bg" style="width: {{ $data['percentage'] ?? null }}%">
+                            {{ $data['percentage'] ?? null }}%</div>
                     </div>
                 </div>
             </div>
@@ -432,11 +434,16 @@
                 </div>
             </div>
             <div class="row pb-5">
-                <div class="col-12">
-                    <div class="donate_bar text-center">
-                        <span class="">Donate</span>
+                {{-- @dd($data['btn_link']) --}}
+                {{-- <a href="{{ $data['btn_link'] ?? null }}"> --}}
+                <a href="https://www.google.com">ddd
+                </a>
+
+                    <div class="col-12">
+                        <div class="donate_bar text-center">
+                            <span class="">Donate</span>
+                        </div>
                     </div>
-                </div>
             </div>
             <div class="row pt-4">
                 <div class="col-12">

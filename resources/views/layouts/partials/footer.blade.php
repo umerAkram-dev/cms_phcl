@@ -37,11 +37,32 @@
                         </div>
                     </div>
                 </div>
+                {{-- <div class="f-flex">
+                    <div>
+
+                    </div>
+                    <div>
+
+                    </div>
+                </div> --}}
             </div>
         </div>
         <div class="container">
-            <div class="text-center border_bottom_white mt-3">
-                <p class="mb-0 pt-4 pivotpoint_deployment">A PivotPoint Development CMS - Copyright © PCHL 2024</p>
+
+            <div class=" border_bottom_white mt-3">
+                <div class="footer_copy_right">
+                    <div class="footer_logo">
+                        <a href="https://azsic.live/">
+
+                            <img width="60px" src="{{ asset('assets/images/PPI-Logo.png') }}" alt="logo">
+                        </a>
+                        <a href="https://azsic.live/">
+                            <img width="60px" src="{{ asset('assets/images/azsic-logo.png') }}" alt="logo">
+                        </a>
+                    </div>
+                    &nbsp;
+                    <p>Designed &amp; Developed by PivotPoint Innovation © All Rights Reserved 2023</p>
+                </div>
             </div>
         </div>
     </div>

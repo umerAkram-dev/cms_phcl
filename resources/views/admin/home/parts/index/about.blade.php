@@ -13,14 +13,9 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <label for="inputNumber" class="col-12">Background Image</label>
+                    <label for="inputPassword" class="col-12">Vedio Link</label>
                     <div class="col-12">
-                        <input class="form-control" name="img[about_pchl_background_img]"
-                            accept="image/png, image/jpeg, image/jpg, image/svg," type="file">
-                    </div>
-                    <div class="col-12 mt-2">
-                        <img width="150px" src="{{ asset('frontend/'.$page.'/'.$page_subtype.'/about_pchl_background_img.png') }}"
-                            alt="">
+                        <textarea class="form-control" name="type[about_pchl_link]" required style="height: 100px">{{ $data['about_pchl_link'] ?? null }}</textarea>
                     </div>
                 </div>
                 <div class="row mb-3">

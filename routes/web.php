@@ -26,6 +26,8 @@ Route::get('ride','RideController@index')->name('ride');
 
 Route::get('/home','Admin\HomeController@index')->name('admin.index');
 Route::get('/about_us','Admin\HomeController@about_us')->name('admin.about_us');
+
+
 Route::get('/admin/donation','Admin\HomeController@donation')->name('admin.donation');
 Route::get('/admin/programhighlights','Admin\HomeController@programhighlights')->name('admin.programhighlights');
 Route::get('/admin/contact','Admin\HomeController@contact')->name('admin.contact');

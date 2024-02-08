@@ -5,6 +5,53 @@
             background-image: url('{{ asset('frontend/donation/header/header_background_img.png') }}') !important;
         }
     </style>
+      <style>
+        .navbar_bg::before,
+        .navbar_bg::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+
+        .navbar_bg::before {
+            background: url('{{ asset('header_bg.png') }}') center/cover no-repeat;
+            z-index: -1;
+            height: 41.7em;
+        }
+
+        .navbar_bg::after {
+            background: url('{{ asset('frontend/donation/header/header_background_img.png') }}') center/cover no-repeat !important;
+            z-index: -2;
+            height: 41.5em;
+        }
+
+        .laptop-container {
+            position: relative;
+            width: 100%;
+            /* Adjust the width as needed */
+        }
+
+        .laptop-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .laptop-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 15%;
+            left: 12%;
+            width: 76%;
+            height: 68%;
+        }
+    </style>
 @endsection
 @section('content')
     {{-- @dd($data) --}}
@@ -110,7 +157,7 @@
                         <div class="donation_box_page mt-lg-5 mt-md-3 mt-3 mx-lg-2">
                             <div>
                                 <img src="{{ asset('frontend/donation/donations_accomplish_'.$i.'/donations_accomplish_img_'.$i.'.png') }}" alt="">
-                                <h3 class="donation_page_mission_class pt-4 ps-lg-4 ps-md-3">
+                                <h3 class="donation_page_mission_class pt-4">
                                     {{ $data['donations_accomplish_heading_'.$i.''] ?? null }}</h3>
                                 <p class="donations_phcl_p_about_page pt-2 pb-3">
                                     {{ $data['donations_accomplish_'.$i.'_description'] ?? null }}</p>
