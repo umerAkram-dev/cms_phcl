@@ -434,16 +434,17 @@
                 </div>
             </div>
             <div class="row pb-5">
-                {{-- @dd($data['btn_link']) --}}
+                {{-- @dd($btn_link) --}}
                 {{-- <a href="{{ $data['btn_link'] ?? null }}"> --}}
-                <a href="https://www.google.com">ddd
-                </a>
+                <a href="{{ $data['btn_link'] }}" style="text-decoration: none;">
 
                     <div class="col-12">
                         <div class="donate_bar text-center">
                             <span class="">Donate</span>
                         </div>
                     </div>
+                </a>
+
             </div>
             <div class="row pt-4">
                 <div class="col-12">
@@ -468,8 +469,7 @@
                     <div class="col-12">
                         <div class="text-center">
                             <h3 class="cooking_classes_h3 pt-5">Latest News and Resources</h3>
-                            <p class="cooking_classes_p pb-3">Lorem ipsum dolor sit amet consectetur. Urna lacinia lacus
-                                <br> odio consectetur. Nisi eleifend a quam leo s
+                            <p class="cooking_classes_p pb-3">{{ $data['news_resources_top_description'] ?? null }}
                             </p>
                         </div>
                     </div>
@@ -478,30 +478,20 @@
             <div id="cCarousel" class="pb-5">
                 <div id="carousel-vp">
                     <div id="cCarousel-inner">
-                        <article class="cCarousel-item start">
-                            <img src="./assets/images/IMage 1 (2).png" alt="Moon">
-                            <div class="infos text-center py-4">
-                                <p class="cooking_classes_p mb-0">Lorem ipsum dolor sit amet <br> consectetur. Lectus
-                                    pellentesque <br> sit non lectus pulvinar. Risus <br> pellentesque.</p>
-                                <button type="button" class="learn_more_btn my-4">Learn More</button>
-                            </div>
-                        </article>
-                        <article class="cCarousel-item middle">
-                            <img src="./assets/images/IMage 2.png" alt="Moon">
-                            <div class="infos text-center py-4">
-                                <p class="cooking_classes_p mb-0">Lorem ipsum dolor sit amet <br> consectetur. Lectus
-                                    pellentesque <br> sit non lectus pulvinar. Risus <br> pellentesque.</p>
-                                <button type="button" class="learn_more_btn my-4">Learn More</button>
-                            </div>
-                        </article>
-                        <article class="cCarousel-item start">
-                            <img src="./assets/images/IMage 3 (1).png" alt="Moon">
-                            <div class="infos text-center py-4">
-                                <p class="cooking_classes_p mb-0">Lorem ipsum dolor sit amet <br> consectetur. Lectus
-                                    pellentesque <br> sit non lectus pulvinar. Risus <br> pellentesque.</p>
-                                <button type="button" class="learn_more_btn my-4">Learn More</button>
-                            </div>
-                        </article>
+                        @for ($i = 1; $i < 4; $i++)
+                            <article class="cCarousel-item start">
+                                <img src="{{ asset('frontend/home/news_resources_' . $i . '/news_resources_' . $i . '.png') }}"
+                                    alt="Moon">
+                                <div class="infos text-center py-4">
+                                    <p class="cooking_classes_p mb-0">
+                                        {{ $data['news_resources_' . $i . '_img_description'] ?? null }}</p>
+                                    <a href="{{ $data['news_resources_btn_link_' . $i] ?? null }}">
+                                        <button type="button" class="learn_more_btn my-4">Learn More</button>
+                                    </a>
+                                </div>
+                            </article>
+                        @endfor
+
                     </div>
                 </div>
                 <div>

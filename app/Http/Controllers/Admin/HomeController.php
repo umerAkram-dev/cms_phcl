@@ -10,6 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+
         $contents = Content::where('page', 'home')->get();
         $data = [];
         foreach ($contents as $value) {
@@ -74,4 +75,13 @@ class HomeController extends Controller
         }
         return view('admin.home.settings_page', compact('data'));
     }
+    // public function footer()
+    // {
+    //     $data = [];
+    //     $contents = Content::where('page', 'footer')->get();
+    //     foreach ($contents as $value) {
+    //         $data[$value->type] = $value->content;
+    //     }
+    //     return view('admin.home.footer', compact('data'));
+    // }
 }

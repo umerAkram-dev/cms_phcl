@@ -24,15 +24,18 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Latest News And Resources</h5>
-                            <form>
+                            <form action="{{ route('admin.update_content') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <input type="hidden" name="page" value="{{ $page = 'home' }}">
+                                <input type="hidden" name="page_subtype" value="{{ $page_subtype = 'news_resources' }}">
                                 <div class="row mb-3">
                                     <label class="col-12">Description</label>
                                     <div class="col-12">
-                                        <input type="news_resources_description" class="form-control">
+                                        <textarea class="form-control" name="type[news_resources_top_description]" style="height: 100px">{{ $data['news_resources_top_description'] ?? null }}</textarea>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <div class="col-sm-10">
+                                    <div class="col-12">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </div>
@@ -42,95 +45,120 @@
                         <div class="col-lg-12">
                             <div class="m-4">
                                 <div class="row">
-                                    <div class="col-4 ">
-                                        <div class="card-body border_right">
-                                            <h5 class="card-title">Latest News And Resources 1</h5>
-                                            <form>
-                                                <div class="row mb-3">
-                                                    <label class="col-12">Description</label>
-                                                    <div class="col-12">
-                                                        <textarea class="form-control" name="news_resources_1_description" style="height: 100px"></textarea>
+
+                                    @for ($i = 1; $i < 4; $i++)
+                                        <div class="col-4 ">
+                                            <div class="card-body border_right">
+                                                <h5 class="card-title">Latest News And Resources {{ $i }}</h5>
+                                                <form action="{{ route('admin.update_content') }}" method="POST"
+                                                    enctype="multipart/form-data">
+                                                    @csrf
+                                                    <input type="hidden" name="page" value="{{ $page = 'home' }}">
+                                                    <input type="hidden" name="page_subtype"
+                                                        value="{{ $page_subtype = 'news_resources_' . $i . '' }}">
+                                                    <div class="row mb-3">
+                                                        <label class="col-12">Description</label>
+                                                        <div class="col-12">
+                                                            <textarea class="form-control" name="type[news_resources_{{ $i }}_description]" style="height: 100px">{{ $data['news_resources_' . $i . '_description'] ?? null }}</textarea>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row mb-3">
-                                                    <label for="inputNumber" class="col-12">Image</label>
-                                                    <div class="col-12">
-                                                        <input class="form-control" name="news_resources_1"
-                                                            type="file" id="formFile">
+                                                    <div class="row mb-3">
+                                                        <label for="inputNumber" class="col-12">Image</label>
+                                                        <div class="col-12">
+                                                            <input class="form-control"
+                                                                name="img[news_resources_{{ $i }}]"
+                                                                type="file" id="formFile">
+                                                        </div>
+                                                        <div class="col-12 mt-2">
+                                                            <img width="100px"
+                                                                src="{{ asset('frontend/' . $page . '/' . $page_subtype . '/news_resources_' . $i . '.png') }}"
+                                                                alt="">
+                                                        </div>
                                                     </div>
-                                                    <div class="col-12 mt-2">
-                                                        <img width="100px"
-                                                            src="{{ asset('assets/images/IMage 1 (2).png') }}"
-                                                            alt="">
+                                                    <div class="row mb-3">
+                                                        <label class="col-12">Img Description</label>
+                                                        <div class="col-12">
+                                                            <textarea class="form-control" name="type[news_resources_{{ $i }}_img_description]" style="height: 100px">{{ $data['news_resources_' . $i . '_img_description'] ?? null }}</textarea>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row mb-3">
-                                                    <div class="col-12">
-                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    <div class="row mb-3">
+                                                        <label class="col-12">Btn Link</label>
+                                                        <div class="col-12">
+                                                            <input type="text"
+                                                                name="type[news_resources_btn_link_{{ $i }}]"
+                                                                class="form-control"
+                                                                value="{{ $data['news_resources_btn_link_' . $i . ''] ?? null }}">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </form>
+                                                    <div class="row mb-3">
+                                                        <div class="col-12">
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card-body border_right">
-                                            <h5 class="card-title">Latest News And Resources 2</h5>
-                                            <form>
-                                                <div class="row mb-3">
-                                                    <label class="col-12">Description</label>
-                                                    <div class="col-12">
-                                                        <textarea class="form-control" name="news_resources_2_description" style="height: 100px"></textarea>
+                                    @endfor
+                                    {{-- <div class="col-4">
+                                            <div class="card-body border_right">
+                                                <h5 class="card-title">Latest News And Resources 2</h5>
+                                                <form>
+                                                    <div class="row mb-3">
+                                                        <label class="col-12">Description</label>
+                                                        <div class="col-12">
+                                                            <textarea class="form-control" name="news_resources_2_description" style="height: 100px"></textarea>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row mb-3">
-                                                    <label for="inputNumber" class="col-12">Image</label>
-                                                    <div class="col-12">
-                                                        <input class="form-control" name="news_resources_2"
-                                                            type="file" id="formFile">
+                                                    <div class="row mb-3">
+                                                        <label for="inputNumber" class="col-12">Image</label>
+                                                        <div class="col-12">
+                                                            <input class="form-control" name="news_resources_2"
+                                                                type="file" id="formFile">
+                                                        </div>
+                                                        <div class="col-12 mt-2">
+                                                            <img width="100px"
+                                                                src="{{ asset('assets/images/IMage 2.png') }}"
+                                                                alt="">
+                                                        </div>
                                                     </div>
-                                                    <div class="col-12 mt-2">
-                                                        <img width="100px" src="{{ asset('assets/images/IMage 2.png') }}"
-                                                            alt="">
+                                                    <div class="row mb-3">
+                                                        <div class="col-12">
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row mb-3">
-                                                    <div class="col-12">
-                                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </form>
+                                                </form>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card-body border_right">
-                                            <h5 class="card-title">Latest News And Resources 3</h5>
-                                            <form>
-                                                <div class="row mb-3">
-                                                    <label class="col-12">Description</label>
-                                                    <div class="col-12">
-                                                        <textarea class="form-control" name="news_resources_3_description" style="height: 100px"></textarea>
+                                        <div class="col-4">
+                                            <div class="card-body border_right">
+                                                <h5 class="card-title">Latest News And Resources 3</h5>
+                                                <form>
+                                                    <div class="row mb-3">
+                                                        <label class="col-12">Description</label>
+                                                        <div class="col-12">
+                                                            <textarea class="form-control" name="news_resources_3_description" style="height: 100px"></textarea>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row mb-3">
-                                                    <label for="inputNumber" class="col-12">Image</label>
-                                                    <div class="col-12">
-                                                        <input class="form-control" name="news_resources_3"
-                                                            type="file" id="formFile">
+                                                    <div class="row mb-3">
+                                                        <label for="inputNumber" class="col-12">Image</label>
+                                                        <div class="col-12">
+                                                            <input class="form-control" name="news_resources_3"
+                                                                type="file" id="formFile">
+                                                        </div>
+                                                        <div class="col-12 mt-2">
+                                                            <img width="100px"
+                                                                src="{{ asset('assets/images/IMage 3 (1).png') }}"
+                                                                alt="">
+                                                        </div>
                                                     </div>
-                                                    <div class="col-12 mt-2">
-                                                        <img width="100px"
-                                                            src="{{ asset('assets/images/IMage 3 (1).png') }}"
-                                                            alt="">
+                                                    <div class="row mb-3">
+                                                        <div class="col-12">
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="row mb-3">
-                                                    <div class="col-12">
-                                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+                                                </form>
+                                            </div>
+                                        </div> --}}
                                 </div>
                             </div>
                         </div>

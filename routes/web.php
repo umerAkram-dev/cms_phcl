@@ -34,3 +34,7 @@ Route::get('/admin/contact','Admin\HomeController@contact')->name('admin.contact
 Route::post('update_content','Admin\ContentController@update')->name('admin.update_content');
 Route::get('/admin/ride','Admin\HomeController@ride_page')->name('admin.ride_page');
 Route::get('/admin/settings','Admin\HomeController@settings')->name('admin.settings');
+Route::get('/admin/footer','Admin\HomeController@footer')->name('admin.footer');
+
+Route::get('/admin/change_password/index','Admin\ChangePasswordController@index')->name('admin.change_password_index');
+Route::post('/admin/change_password','Admin\ChangePasswordController@ChangePassword')->name('admin.change_password');
