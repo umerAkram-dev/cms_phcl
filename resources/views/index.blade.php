@@ -1,16 +1,6 @@
 @extends('layouts.app')
 @section('css_after')
     <style>
-        .navbar_bg::before,
-        .navbar_bg::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
-
         .navbar_bg::before {
             background: url('{{ asset('header_bg.png') }}') center/cover no-repeat;
             z-index: -1;
@@ -21,30 +11,6 @@
             background: url('{{ asset('frontend/home/header/header_background_img.png') }}') center/cover no-repeat;
             z-index: -2;
             height: 41.5em;
-        }
-
-        .laptop-container {
-            position: relative;
-            width: 100%;
-            /* Adjust the width as needed */
-        }
-
-        .laptop-image {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .laptop-image img {
-            width: 100%;
-            height: auto;
-        }
-
-        .video-container {
-            position: absolute;
-            top: 15%;
-            left: 12%;
-            width: 76%;
-            height: 68%;
         }
     </style>
 @endsection
@@ -172,8 +138,30 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <img src="{{ asset('frontend/' . $page . '/gallery/gallery_img.png') }}"
-                            class="img-fluid images_height" alt="">
+                        <div class="parent-container">
+                            <div class="child-container" id="one">
+                                <img src="https://source.unsplash.com/s4uCgs7qVQc" width="100%" height="auto">
+                                <img src="https://source.unsplash.com/6Pou6SeJ6cY" width="100%" height="auto">
+                                <img src="https://source.unsplash.com/QwoNAhbmLLo" width="100%" height="auto">
+                                <img src="https://source.unsplash.com/an-artists-rendering-of-a-distant-object-in-space-fSLGThEmY2Y"
+                                    width="100%" height="auto">
+                                <img src="https://source.unsplash.com/3yQY9GPM8Mg" width="100%" height="auto">
+                            </div>
+                            <div class="child-container" id="two">
+                                <img src="https://source.unsplash.com/QrlCL6DH3yU" width="100%" height="auto">
+                                <img src="https://source.unsplash.com/7bnvNN3R_eo" width="100%" height="auto">
+                                <img src="https://source.unsplash.com/zwk1sQqGRcQ" width="100%" height="auto">
+                            </div>
+                            <div class="child-container" id="three">
+                                <img src="https://source.unsplash.com/UGNXT7QryGA" width="100%" height="auto">
+                                <img src="https://source.unsplash.com/nc1zsYGkLFA" width="100%" height="auto">
+                                <img src="https://source.unsplash.com/a-man-in-a-space-suit-standing-on-top-of-a-rock-XDFfAHlxw9I"
+                                    width="100%" height="auto">
+                                <img src="https://source.unsplash.com/kXLgdCmmGYk" width="100%" height="auto">
+                                <img src="https://source.unsplash.com/OiiVv1iiB0A" width="100%" height="auto">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -436,7 +424,7 @@
             <div class="row pb-5">
                 {{-- @dd($btn_link) --}}
                 {{-- <a href="{{ $data['btn_link'] ?? null }}"> --}}
-                <a href="{{ $data['btn_link'] }}" style="text-decoration: none;">
+                <a href="{{ $data['btn_link'] ?? '' }}" style="text-decoration: none;">
 
                     <div class="col-12">
                         <div class="donate_bar text-center">

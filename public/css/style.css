@@ -751,3 +751,45 @@ i {
     border: none;
     box-shadow: none;
 }
+
+.navbar_bg::before,
+.navbar_bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.laptop-container {
+    position: relative;
+    width: 100%;
+    /* Adjust the width as needed */
+}
+
+.laptop-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.laptop-image img {
+    width: 100%;
+    height: auto;
+}
+
+.video-container {
+    position: absolute;
+    top: 15%;
+    left: 12%;
+    width: 76%;
+    height: 68%;
+}
+
+.footer_copy_right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px 0px 60px 0px;
+}

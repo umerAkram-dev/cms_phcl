@@ -6,16 +6,6 @@
         }
     </style>
       <style>
-        .navbar_bg::before,
-        .navbar_bg::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-        }
-
         .navbar_bg::before {
             background: url('{{ asset('header_bg.png') }}') center/cover no-repeat;
             z-index: -1;
@@ -26,30 +16,6 @@
             background: url('{{ asset('frontend/programhighlights/header/header_background_img.png') }}') center/cover no-repeat !important;
             z-index: -2;
             height: 41.5em;
-        }
-
-        .laptop-container {
-            position: relative;
-            width: 100%;
-            /* Adjust the width as needed */
-        }
-
-        .laptop-image {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .laptop-image img {
-            width: 100%;
-            height: auto;
-        }
-
-        .video-container {
-            position: absolute;
-            top: 15%;
-            left: 12%;
-            width: 76%;
-            height: 68%;
         }
     </style>
 @endsection
