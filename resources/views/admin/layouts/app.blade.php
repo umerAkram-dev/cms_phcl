@@ -19,6 +19,8 @@
     <link href="{{ asset('admin/assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/vendor/simple-datatables/style.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/css/style.css') }}" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     @yield('css_after')
 </head>
 
@@ -45,6 +47,7 @@
 
     <!-- Template Main JS File -->
     <script src="{{ asset('admin/assets/js/main.js') }}"></script>
+
 
 </body>
 

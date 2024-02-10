@@ -1,4 +1,4 @@
-<div class="col-lg-6">
+<div class="col-auto">
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">Gallery</h5>
@@ -12,24 +12,51 @@
                         <textarea class="form-control" name="type[gallery_description]" required style="height: 100px">{{ $data['gallery_description'] ?? null }}</textarea>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <label for="inputNumber" class="col-12">Background Image</label>
-                    <div class="col-12">
-                        <input class="form-control" name="img[gallery_img]"
-                        accept="image/png, image/jpeg, image/jpg, image/svg," type="file">
 
-                    </div>
-                    <div class="col-12 mt-2">
-                        <img width="150px" src="{{ asset('frontend/'.$page.'/'.$page_subtype.'/gallery_img.png') }}"
-                        alt="">
-                     </div>
-                </div>
                 <div class="row mb-3">
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </div>
             </form>
+            <div class="row">
+
+                @php
+                    use Illuminate\Support\Facades\File;
+                @endphp
+                @for ($i = 1; $i < 4; $i++)
+                    <div class="col-4 border_right">
+                        <h5 class="card-title">Column {{ $i }} Images</h5>
+                        @php
+                            $folderPath = public_path('frontend/home/gallery_col_' . $i);
+                            if (!is_dir($folderPath)) {
+                                if (!mkdir($folderPath, 0777, true)) {
+                                    die('Failed to create folder...');
+                                }
+                            }
+                            $files = File::files($folderPath);
+                        @endphp
+                        @if (count($files) > 0)
+                            @foreach ($files as $key => $file)
+                                @include('admin.home.parts.gallery.gallery_form')
+                            @endforeach
+                        @else
+                            @include('admin.home.parts.gallery.gallery_form')
+                        @endif
+                        <button id="addFormBtn" class="btn btn-success" onclick="add_image({{ $i }})">Add Another Image</button>
+                    </div>
+                @endfor
+            </div>
+
         </div>
     </div>
 </div>
+<script>
+    function add_image(col) {
+        var newForm = $(`.dynamic-form-${col}:last`).clone();
+        var newKey = Math.random();
+        newForm.find('input[name^="img"]').attr('name', `img[gallery_img_col_${col}_${newKey}]`);
+        newForm.find('img').attr('src', '').attr('alt', '');
+        $(`.dynamic-form-${col}:last`).after(newForm);
+    }
+</script>

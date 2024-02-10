@@ -12,6 +12,7 @@
             z-index: -2;
             height: 41.5em;
         }
+
     </style>
 @endsection
 @section('content')
@@ -136,32 +137,32 @@
                         </div>
                     </div>
                 </div>
+                @php
+                    use Illuminate\Support\Facades\File;
+                @endphp
                 <div class="row">
                     <div class="col-12">
-                        <div class="parent-container">
-                            <div class="child-container" id="one">
-                                <img src="https://source.unsplash.com/s4uCgs7qVQc" width="100%" height="auto">
-                                <img src="https://source.unsplash.com/6Pou6SeJ6cY" width="100%" height="auto">
-                                <img src="https://source.unsplash.com/QwoNAhbmLLo" width="100%" height="auto">
-                                <img src="https://source.unsplash.com/an-artists-rendering-of-a-distant-object-in-space-fSLGThEmY2Y"
-                                    width="100%" height="auto">
-                                <img src="https://source.unsplash.com/3yQY9GPM8Mg" width="100%" height="auto">
-                            </div>
-                            <div class="child-container" id="two">
-                                <img src="https://source.unsplash.com/QrlCL6DH3yU" width="100%" height="auto">
-                                <img src="https://source.unsplash.com/7bnvNN3R_eo" width="100%" height="auto">
-                                <img src="https://source.unsplash.com/zwk1sQqGRcQ" width="100%" height="auto">
-                            </div>
-                            <div class="child-container" id="three">
-                                <img src="https://source.unsplash.com/UGNXT7QryGA" width="100%" height="auto">
-                                <img src="https://source.unsplash.com/nc1zsYGkLFA" width="100%" height="auto">
-                                <img src="https://source.unsplash.com/a-man-in-a-space-suit-standing-on-top-of-a-rock-XDFfAHlxw9I"
-                                    width="100%" height="auto">
-                                <img src="https://source.unsplash.com/kXLgdCmmGYk" width="100%" height="auto">
-                                <img src="https://source.unsplash.com/OiiVv1iiB0A" width="100%" height="auto">
-                            </div>
-                        </div>
 
+                        <div class="parent-container">
+                            @for ($i = 1; $i < 4; $i++)
+                                @php
+                                    $folderPath = public_path('frontend/home/gallery_col_'.$i);
+                                    if (!is_dir($folderPath)) {
+                                        if (!mkdir($folderPath, 0777, true)) {
+                                            die('Failed to create folder...');
+                                        }
+                                    }
+                                    $files = File::files($folderPath);
+                                @endphp
+
+                                <div class="child-container">
+                                    @foreach ($files as $file)
+                                        <img src="{{ asset('frontend/home/gallery_col_'.$i.'/' . $file->getFilename()) }}"
+                                            width="100%" height="auto">
+                                    @endforeach
+                                </div>
+                            @endfor
+                        </div>
                     </div>
                 </div>
             </div>
@@ -198,33 +199,6 @@
                                 </a>
                             </div>
                         @endfor
-                        {{-- <div class="col-lg-3 col-md-3 col-12">
-                            <div class="services_box">
-                                <div class="text-center">
-                                    <img src="./assets/images/image 3.png" alt="">
-                                    <h3 class="traction_h3 mb-3 mt-3">Happy Clients</h3>
-                                    <p class="traction_count mb-0">7500</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-12">
-                            <div class="services_box">
-                                <div class="text-center">
-                                    <img src="./assets/images/image 4.png" alt="">
-                                    <h3 class="traction_h3 mb-3 mt-3">Visitors</h3>
-                                    <p class="traction_count mb-0">20500</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-12">
-                            <div class="services_box">
-                                <div class="text-center">
-                                    <img src="./assets/images/image 5.png" alt="">
-                                    <h3 class="traction_h3 mb-3 mt-3">Awards Won</h3>
-                                    <p class="traction_count mb-0">3000</p>
-                                </div>
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -264,39 +238,6 @@
                             </div>
                         </div>
                     @endfor
-
-                    {{-- <div class="col-lg-4 col-md-4 col-12">
-                        <div class="text-center">
-                            <img src="./assets/images/image 7.png" alt="">
-                        </div>
-                        <div class="team_box">
-                            <div class="d-flex align-items-start h-100">
-                                <div>
-                                    <img src="./assets/images/Group 9416.png" alt="">
-                                </div>
-                                <div>
-                                    <h3 class="team_member_name mt-3">Dr. Michael Santoso</h3>
-                                    <p class="cooking_classes_p mb-3">Head of Lorem Ispum</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-12">
-                        <div class="text-center">
-                            <img src="./assets/images/image 7.png" alt="">
-                        </div>
-                        <div class="team_box">
-                            <div class="d-flex align-items-start h-100">
-                                <div>
-                                    <img src="./assets/images/Group 9416.png" alt="">
-                                </div>
-                                <div>
-                                    <h3 class="team_member_name mt-3">Dr. Michael Santoso</h3>
-                                    <p class="cooking_classes_p mb-3">Head of Lorem Ispum</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
                 </div>
             </div>
         </div>

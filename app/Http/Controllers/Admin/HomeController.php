@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Content;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class HomeController extends Controller
 {
@@ -74,6 +75,16 @@ class HomeController extends Controller
             $data[$value->type] = $value->content;
         }
         return view('admin.home.settings_page', compact('data'));
+    }
+    public function delete_img($col, $img)
+    {
+        $folderPath = public_path('frontend/home/' . $col);
+        $filePath = $folderPath . '/' . $img;
+
+        if (File::exists($filePath)) {
+            File::delete($filePath);
+            return redirect()->back();
+        }
     }
     // public function footer()
     // {
