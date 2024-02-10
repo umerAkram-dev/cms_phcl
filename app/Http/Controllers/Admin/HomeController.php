@@ -39,15 +39,18 @@ class HomeController extends Controller
         // dd($data);
         return view('admin.home.donation', compact('data'));
     }
-    public function programhighlights()
+    public function programhighlights($type)
     {
         $data = [];
-        $contents = Content::where('page', 'programhighlights')->get();
-        foreach ($contents as $value) {
-            $data[$value->type] = $value->content;
+        $program_highlights = ['cooking_classes', 'lifestyle_changes', 'treatments'];
+        if (in_array($type, $program_highlights)) {
+            $contents = Content::where('page', 'programhighlights_'.$type)->get();
+            foreach ($contents as $value) {
+                $data[$value->type] = $value->content;
+            }
+            $background_img ="frontend/programhighlights_'.$type.'/header/header_background_img.png";
+            return view('admin.home.program_highlights', compact('data', 'type','background_img'));
         }
-
-        return view('admin.home.program_highlights', compact('data'));
     }
     public function contact()
     {
@@ -76,6 +79,24 @@ class HomeController extends Controller
         }
         return view('admin.home.settings_page', compact('data'));
     }
+    public function footer()
+    {
+        $data = [];
+        $contents = Content::where('page', 'footer')->get();
+        foreach ($contents as $value) {
+            $data[$value->type] = $value->content;
+        }
+        return view('admin.home.footer', compact('data'));
+    }
+    public function header()
+    {
+        $data = [];
+        $contents = Content::where('page', 'header')->get();
+        foreach ($contents as $value) {
+            $data[$value->type] = $value->content;
+        }
+        return view('admin.home.header', compact('data'));
+    }
     public function delete_img($col, $img)
     {
         $folderPath = public_path('frontend/home/' . $col);
@@ -86,13 +107,4 @@ class HomeController extends Controller
             return redirect()->back();
         }
     }
-    // public function footer()
-    // {
-    //     $data = [];
-    //     $contents = Content::where('page', 'footer')->get();
-    //     foreach ($contents as $value) {
-    //         $data[$value->type] = $value->content;
-    //     }
-    //     return view('admin.home.footer', compact('data'));
-    // }
 }

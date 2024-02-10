@@ -13,6 +13,7 @@
                 @include('admin.home.parts.footer.header')
                 @include('admin.home.parts.footer.about')
                 @include('admin.home.parts.footer.contact_info')
+                @include('admin.home.parts.footer.bottom_img')
             </div>
         </section>
     </main>

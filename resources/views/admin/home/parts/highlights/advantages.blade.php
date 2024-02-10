@@ -1,5 +1,5 @@
 <div class="col-lg-12">
-    <div class="card">
+    <div>
         <div class="row">
             @for ($i = 1; $i < 5; $i++)
                 <div class="col-4 ">
@@ -7,7 +7,7 @@
                         <h5 class="card-title">Advantages {{ $i }}</h5>
                         <form action="{{ route('admin.update_content') }}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" name="page" value="{{ $page = 'programhighlights' }}">
+                            <input type="hidden" name="page" value="{{ $page = 'programhighlights_'.$type.'' }}">
                             <input type="hidden" name="page_subtype" value="{{ $page_subtype = 'advantages_'.$i.'' }}">
                             <div class="row mb-3">
                                 <label for="inputNumber" class="col-12">Advantages

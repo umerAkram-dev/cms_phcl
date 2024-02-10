@@ -8,6 +8,7 @@
 @endsection
 @section('content')
     <main id="main" class="main">
+
         <section class="section">
             <div class="row">
                 @include('admin.home.parts.about_us.header')

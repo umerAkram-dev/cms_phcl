@@ -12,8 +12,8 @@
                             <div class="row mb-3">
                                 <label class="col-12">Contact Info {{ $i }}</label>
                                 <div class="col-12">
-                                    <input type="text" name="type[contact_info{{ $i }}]"
-                                        class="form-control" value="{{ $data['contact_info' . $i] ?? null }}">
+                                    <input type="text" name="type[contact_info_{{ $i }}]"
+                                        class="form-control" value="{{ $data['contact_info_' . $i] ?? null }}">
                                 </div>
                             </div>
                         @endfor

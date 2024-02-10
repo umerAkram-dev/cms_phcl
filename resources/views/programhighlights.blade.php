@@ -1,10 +1,5 @@
 @extends('layouts.app')
 @section('css_after')
-    <style>
-        .navbar_bg {
-            background-image: url('{{ asset('frontend/programhighlights/header/header_background_img.png') }}') !important;
-        }
-    </style>
       <style>
         .navbar_bg::before {
             background: url('{{ asset('header_bg.png') }}') center/cover no-repeat;
@@ -13,7 +8,7 @@
         }
 
         .navbar_bg::after {
-            background: url('{{ asset('frontend/programhighlights/header/header_background_img.png') }}') center/cover no-repeat !important;
+            background: url('{{ $background_img }}') center/cover no-repeat !important;
             z-index: -2;
             height: 41.5em;
         }
@@ -53,7 +48,7 @@
             <div class="row">
                 <div class="col-12">
                     <div>
-                        <img src="{{asset('frontend/programhighlights/programhighlight/programhighlights_img.png')}}" class="mb-lg-4 mb-md-3 mb-3" alt="">
+                        <img src="{{asset('frontend/programhighlights_'.$type.'/programhighlight/programhighlights_img.png')}}" class="mb-lg-4 mb-md-3 mb-3" alt="">
                         <h3 class="highlights_phcl_h3 pb-3">{{ $data['programhighlights_heading'] ?? null }}</h3>
                         <p class="about_phcl_p">{{ $data['programhighlights_description'] ?? null }}</p>
                     </div>
@@ -78,7 +73,7 @@
             <div class="col-lg-3 col-md-3 col-12">
                 <div class="donation_box_page mt-lg-5 mt-md-3 mt-3 mx-lg-2">
                     <div>
-                        <img src="{{asset('frontend/programhighlights/advantages_1/our_traction_img_1.png')}}" class="mt-2" alt="">
+                        <img src="{{asset('frontend/programhighlights_'.$type.'/advantages_1/our_traction_img_1.png')}}" class="mt-2" alt="">
                         <h3 class="donation_page_mission_class pt-4">{{ $data['programhighlights_1'] ?? null }}</h3>
                     </div>
                 </div>
@@ -86,7 +81,7 @@
             <div class="col-lg-3 col-md-3 col-12">
                 <div class="donation_box_page mt-lg-5 mt-md-3 mt-3 mx-lg-2">
                     <div>
-                        <img src="{{asset('frontend/programhighlights/advantages_2/our_traction_img_2.png')}}" class="mt-2" alt="">
+                        <img src="{{asset('frontend/programhighlights_'.$type.'/advantages_2/our_traction_img_2.png')}}" class="mt-2" alt="">
                         <h3 class="donation_page_mission_class pt-4">{{ $data['programhighlights_2'] ?? null }}</h3>
                     </div>
                 </div>
@@ -94,7 +89,7 @@
             <div class="col-lg-3 col-md-3 col-12">
                 <div class="donation_box_page mt-lg-5 mt-md-3 mt-3 mx-lg-2">
                     <div>
-                        <img src="{{asset('frontend/programhighlights/advantages_3/our_traction_img_3.png')}}" class="mt-2" alt="">
+                        <img src="{{asset('frontend/programhighlights_'.$type.'/advantages_3/our_traction_img_3.png')}}" class="mt-2" alt="">
                         <h3 class="donation_page_mission_class pt-4">{{ $data['programhighlights_3'] ?? null }}</h3>
                     </div>
                 </div>
@@ -102,7 +97,7 @@
             <div class="col-lg-3 col-md-3 col-12">
                 <div class="donation_box_page mt-lg-5 mt-md-3 mt-3 mx-lg-2">
                     <div>
-                        <img src="{{asset('frontend/programhighlights/advantages_3/our_traction_img_3.png')}}" class="mt-2" alt="">
+                        <img src="{{asset('frontend/programhighlights_'.$type.'/advantages_4/our_traction_img_4.png')}}" class="mt-2" alt="">
                         <h3 class="donation_page_mission_class pt-4">{{ $data['programhighlights_4'] ?? null }}</h3>
                     </div>
                 </div>
