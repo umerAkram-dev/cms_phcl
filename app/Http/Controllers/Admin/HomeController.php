@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Content;
 use App\Http\Controllers\Controller;
+use App\Query;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -44,12 +45,12 @@ class HomeController extends Controller
         $data = [];
         $program_highlights = ['cooking_classes', 'lifestyle_changes', 'treatments'];
         if (in_array($type, $program_highlights)) {
-            $contents = Content::where('page', 'programhighlights_'.$type)->get();
+            $contents = Content::where('page', 'programhighlights_' . $type)->get();
             foreach ($contents as $value) {
                 $data[$value->type] = $value->content;
             }
-            $background_img ="frontend/programhighlights_'.$type.'/header/header_background_img.png";
-            return view('admin.home.program_highlights', compact('data', 'type','background_img'));
+            $background_img = "frontend/programhighlights_'.$type.'/header/header_background_img.png";
+            return view('admin.home.program_highlights', compact('data', 'type', 'background_img'));
         }
     }
     public function contact()
@@ -106,5 +107,10 @@ class HomeController extends Controller
             File::delete($filePath);
             return redirect()->back();
         }
+    }
+    public function QureyListing()
+    {
+        $queries= Query::get();
+        return view('admin.home.qurey_listing',compact('queries'));
     }
 }
