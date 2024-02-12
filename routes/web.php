@@ -27,7 +27,7 @@ Route::get('ride', 'RideController@index')->name('ride');
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/home', 'Admin\HomeController@index')->name('admin.index');
+    Route::get('home', 'Admin\HomeController@index')->name('admin.index');
     Route::get('/admin/about_us', 'Admin\HomeController@about_us')->name('admin.about_us');
     Route::get('/admin/donation', 'Admin\HomeController@donation')->name('admin.donation');
     Route::get('/admin/programhighlights/{type}', 'Admin\HomeController@programhighlights')->name('admin.programhighlights');
