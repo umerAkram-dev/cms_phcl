@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>PCHL</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('frontend/header/header/tittle_icon.png') }}">
     {{-- <link rel="stylesheet" href="{{ asset('admin/assets/css/ride_page.css') }}"> --}}
