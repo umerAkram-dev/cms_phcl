@@ -1,13 +1,13 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/header*') ? '' : 'collapsed' }}" href="{{ route('admin.header') }}">
-                    <i class="bi bi-file-earmark-fill"></i><span>Header</span>
+                <a class="nav-link {{ Request::is('home*') ? '' : 'collapsed' }}" href="{{ route('admin.index') }}">
+                    <i class="bi bi-file-earmark-fill"></i><span>Landing Page</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/home*') ? '' : 'collapsed' }}" href="{{ route('admin.index') }}">
-                    <i class="bi bi-file-earmark-fill"></i><span>Landing Page</span>
+                <a class="nav-link {{ Request::is('admin/header*') ? '' : 'collapsed' }}" href="{{ route('admin.header') }}">
+                    <i class="bi bi-file-earmark-fill"></i><span>Header</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -26,7 +26,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('admin/programhighlights/cooking_classes*') ? '' : 'collapsed' }}" href="{{ route('admin.programhighlights', 'cooking_classes') }}">
+                <a class="nav-link {{ Request::is('admin/programhighlights/cooking_classes*') ? '' : 'collapsed' }}" href="{{ route('admin.programhighlights','cooking_classes') }}">
                     <i class="bi bi-file-earmark-fill"></i><span>Cooking Classes</span>
                 </a>
             </li>

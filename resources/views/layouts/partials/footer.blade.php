@@ -29,7 +29,7 @@
                         <h3 class="pchl_info pt-4">PCHL Info</h3>
                         @for ($i = 1; $i < 4; $i++)
                             <a href="{{ $data['about_link_' . $i . ''] ?? null }}" style="text-decoration: none">
-                                <p class="pchl_info_p pt-lg-3 pt-md-3 pt-3 mb-2">{{ $data['about_name_' . $i . ''] }}
+                                <p class="pchl_info_p pt-lg-3 pt-md-3 pt-3 mb-2">{{ $data['about_name_' . $i] ?? null}}
                                 </p>
                             </a>
                         @endfor
@@ -38,7 +38,8 @@
                         <div class="ps-lg-5">
                             <h3 class="pchl_info pt-4">Contact Info</h3>
                             @for ($i = 1; $i < 4; $i++)
-                                <p class="pchl_info_p pt-lg-3 pt-md-3 pt-3 mb-2">{{ $data['contact_info_' . $i . ''] }}</p>
+                                <p class="pchl_info_p pt-lg-3 pt-md-3 pt-3 mb-2">{{ $data['contact_info_' . $i ]??null }}
+                                </p>
                             @endfor
 
                         </div>
@@ -53,10 +54,12 @@
                     <div class="footer_logo">
                         <a class="me-5" href="https://azsic.live/">
 
-                            <img width="60px" src="{{ asset('frontend/footer/bottom_imgs/bottom_img_1.png') }}" alt="logo">
+                            <img width="60px" src="{{ asset('frontend/footer/bottom_imgs/bottom_img_1.png') }}"
+                                alt="logo">
                         </a>
                         <a href="https://azsic.live/">
-                            <img width="60px" src="{{ asset('frontend/footer/bottom_imgs/bottom_img_2.png') }}" alt="logo">
+                            <img width="60px" src="{{ asset('frontend/footer/bottom_imgs/bottom_img_2.png') }}"
+                                alt="logo">
                         </a>
                     </div>
                     &nbsp;

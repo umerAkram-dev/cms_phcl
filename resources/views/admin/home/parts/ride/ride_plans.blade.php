@@ -13,21 +13,21 @@
                                     @csrf
                                     <input type="hidden" name="page" value="{{ $page = 'ride' }}">
                                     <input type="hidden" name="page_subtype"
-                                        value="{{ $page_subtype = 'pricing_plan_' . $i . '' }}">
+                                        value="{{ $page_subtype = 'pricing_plan_' . $i}}">
 
                                     <div class="row mb-3">
                                         <label class="col-12">Name</label>
                                         <div class="col-12">
                                             <input type="text" name="type[plan_name_{{ $i }}]"
                                                 class="form-control"
-                                                value="{{ $data['plan_name_' . $i . ''] ?? null }}">
+                                                value="{{ $data['plan_name_' . $i] ?? null }}">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
                                         <label class="col-12">Pricing</label>
                                         <div class="col-12">
                                             <input type="text" name="type[pricing_{{ $i }}]"
-                                                class="form-control" value="{{ $data['pricing_' . $i . ''] ?? null }}">
+                                                class="form-control" value="{{ $data['pricing_' . $i] ?? null }}">
                                         </div>
                                     </div>
 
@@ -36,24 +36,24 @@
                                         <div class="col-12">
                                             <input type="text" name="type[pricing_description_{{ $i }}]"
                                                 class="form-control"
-                                                value="{{ $data['pricing_description_' . $i . ''] ?? null }}">
+                                                value="{{ $data['pricing_description_' . $i] ?? null }}">
                                         </div>
                                     </div>
 
                                         <div class="row mb-3">
                                             <label class="col-12">Features 1</label>
                                             <div class="col-12">
-                                                <input type="text" name="type[features_1]"
+                                                <input type="text" name="type[features_{{ $i }}_1]"
                                                     class="form-control"
-                                                    value="{{ $data['features_1'] ?? null }}">
+                                                    value="{{ $data['features_'.$i.'_1'] ?? null }}">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <label class="col-12">Features 2</label>
                                             <div class="col-12">
-                                                <input type="text" name="type[features_2]"
+                                                <input type="text" name="type[features_{{ $i }}_2]"
                                                     class="form-control"
-                                                    value="{{ $data['features_2'] ?? null }}">
+                                                    value="{{ $data['features_'.$i.'_2'] ?? null }}">
                                             </div>
                                         </div>
                                     <div class="row mb-3">

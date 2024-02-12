@@ -11,7 +11,7 @@
                         <label class="col-12">Name {{ $i }}</label>
                         <div class="col-12">
                             <input type="text" name="type[about_name_{{ $i }}]" class="form-control"
-                                value="{{ $data['about_name_' . $i . ''] ?? null }}">
+                                value="{{ $data['about_name_' . $i] ?? null }}">
                         </div>
                     </div>
                 @endfor
