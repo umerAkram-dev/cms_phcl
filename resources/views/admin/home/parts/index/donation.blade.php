@@ -41,7 +41,7 @@
                 <div class="row mb-3">
                     <label class="col-12">Percentage </label>
                     <div class="col-12">
-                        <input type="text" name="type[percentage]" class="form-control"
+                        <input type="number" name="type[percentage]" class="form-control"
                             value="{{ $data['percentage'] ?? null }}">
                     </div>
                 </div>

@@ -32,6 +32,20 @@
                     </div>
                 </div>
                 <div class="row mb-3">
+                    <label class="col-12">Btn Link </label>
+                    <div class="col-12">
+                        <input type="text" name="type[btn_link]" class="form-control"
+                            value="{{ $data['btn_link'] ?? null }}">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-12">Percentage </label>
+                    <div class="col-12">
+                        <input type="number" name="type[percentage]" class="form-control"
+                            value="{{ $data['percentage'] ?? null }}">
+                    </div>
+                </div>
+                <div class="row mb-3">
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>

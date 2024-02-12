@@ -159,7 +159,7 @@
     <!-- Gallery Section  -->
 
     <section class="mb-5">
-        <div class="gallery_top_bottom_space">
+             <div class="gallery_top_bottom_space">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -169,9 +169,34 @@
                         </div>
                     </div>
                 </div>
+                @php
+                    use Illuminate\Support\Facades\File;
+                @endphp
                 <div class="row">
                     <div class="col-12">
-                        <img src="{{ asset('frontend/about_us/gallery/gallery_img.png') }}" class="img-fluid images_height" alt="">
+
+                        <div class="parent-container">
+                            @for ($i = 1; $i < 4; $i++)
+                                @php
+                                    $folderPath = public_path('frontend/home/gallery_col_'.$i);
+                                    if (!is_dir($folderPath)) {
+                                        if (!mkdir($folderPath, 0777, true)) {
+                                            die('Failed to create folder...');
+                                        }
+                                    }
+                                    $files = File::files($folderPath);
+                                @endphp
+
+                                <div class="child-container">
+                                    @foreach ($files as $file)
+                                    <a href="{{ asset('frontend/home/gallery_col_'.$i.'/' . $file->getFilename()) }}"  target="_blank">
+                                        <img src="{{ asset('frontend/home/gallery_col_'.$i.'/' . $file->getFilename()) }}"
+                                            width="100%" height="auto">
+                                        </a>
+                                    @endforeach
+                                </div>
+                            @endfor
+                        </div>
                     </div>
                 </div>
             </div>

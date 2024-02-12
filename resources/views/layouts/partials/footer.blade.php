@@ -17,7 +17,7 @@
                         <div class="pt-3 pb-3">
                             @foreach ($social_media_logos as $key => $social_media_logo)
                                 <?php $indexedKey = $key + 1; ?>
-                                <a href="{{ $data['social_link_' . $indexedKey . ''] ?? null }}">
+                                <a href="{{ $data['social_link_' . $indexedKey . ''] ?? null }}" style="text-decoration: none">
                                     <img src="./assets/images/{{ $social_media_logo }}.png" class="me-4"
                                         alt="">
                                 </a>
@@ -52,9 +52,9 @@
             <div class=" border_bottom_white mt-3">
                 <div class="footer_copy_right">
                     <div class="footer_logo">
-                        <a class="me-5" href="https://azsic.live/">
+                        <a class="me-5" style="text-decoration: none" href="https://azsic.live/">
 
-                            <img width="60px" src="{{ asset('frontend/footer/bottom_imgs/bottom_img_1.png') }}"
+                            <img width="60px" src="{{ asset('assets/images/PPI_Logo.png') }}"
                                 alt="logo">
                         </a>
                         <a href="https://azsic.live/">

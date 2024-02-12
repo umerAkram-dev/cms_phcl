@@ -12,7 +12,6 @@
             z-index: -2;
             height: 41.5em;
         }
-
     </style>
 @endsection
 @section('content')
@@ -103,17 +102,20 @@
                             <div class="row px-lg-5 pt-lg-4">
                                 @for ($i = 1; $i < 4; $i++)
                                     <div class="col-lg-4 col-md-4 col-12">
-                                        <div class="services_box">
-                                            <div>
-                                                <img width="80px"
-                                                    src="{{ asset('frontend/' . $page . '/our_service_' . $i . '/service_box_img_' . $i . '.png') }}"
-                                                    alt="">
-                                                <h3 class="cooking_classes_h3 mb-3 mt-3">
-                                                    {{ $data['our_service_heading_' . $i] ?? null }}</h3>
-                                                <p class="cooking_classes_p mb-0">
-                                                    {{ $data['our_services_' . $i . '_description'] ?? null }}</p>
+                                        <a href="{{ $data['service_link_' . $i] ?? null }}" style="text-decoration: none;">
+
+                                            <div class="services_box">
+                                                <div>
+                                                    <img width="80px"
+                                                        src="{{ asset('frontend/' . $page . '/our_service_' . $i . '/service_box_img_' . $i . '.png') }}"
+                                                        alt="">
+                                                    <h3 class="cooking_classes_h3 mb-3 mt-3">
+                                                        {{ $data['our_service_heading_' . $i] ?? null }}</h3>
+                                                    <p class="cooking_classes_p mb-0">
+                                                        {{ $data['our_services_' . $i . '_description'] ?? null }}</p>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 @endfor
                             </div>
@@ -146,7 +148,7 @@
                         <div class="parent-container">
                             @for ($i = 1; $i < 4; $i++)
                                 @php
-                                    $folderPath = public_path('frontend/home/gallery_col_'.$i);
+                                    $folderPath = public_path('frontend/home/gallery_col_' . $i);
                                     if (!is_dir($folderPath)) {
                                         if (!mkdir($folderPath, 0777, true)) {
                                             die('Failed to create folder...');
@@ -157,8 +159,11 @@
 
                                 <div class="child-container">
                                     @foreach ($files as $file)
-                                        <img src="{{ asset('frontend/home/gallery_col_'.$i.'/' . $file->getFilename()) }}"
-                                            width="100%" height="auto">
+                                        <a href="{{ asset('frontend/home/gallery_col_' . $i . '/' . $file->getFilename()) }}"
+                                            target="_blank">
+                                            <img src="{{ asset('frontend/home/gallery_col_' . $i . '/' . $file->getFilename()) }}"
+                                                width="100%" height="auto">
+                                        </a>
                                     @endforeach
                                 </div>
                             @endfor
@@ -185,18 +190,16 @@
                     <div class="row">
                         @for ($i = 1; $i < 5; $i++)
                             <div class="col-lg-3 col-md-3 col-12">
-                                <a href="{{ $data['our_traction_link'] ?? null }}" style="text-decoration: none;">
-                                    <div class="services_box">
-                                        <div class="text-center">
-                                            <img src="{{ asset('frontend/' . $page . '/our_traction_' . $i . '/our_traction_img_' . $i . '.png') }}"
-                                                alt="">
-                                            <h3 class="traction_h3 mb-3 mt-3">
-                                                {{ $data['our_traction_heading_' . $i . ''] ?? null }}</h3>
-                                            <p class="traction_count mb-0">
-                                                {{ $data['our_traction_' . $i . '_description'] ?? null }}</p>
-                                        </div>
+                                <div class="services_box">
+                                    <div class="text-center">
+                                        <img src="{{ asset('frontend/' . $page . '/our_traction_' . $i . '/our_traction_img_' . $i . '.png') }}"
+                                            alt="">
+                                        <h3 class="traction_h3 mb-3 mt-3">
+                                            {{ $data['our_traction_heading_' . $i . ''] ?? null }}</h3>
+                                        <p class="traction_count mb-0">
+                                            {{ $data['our_traction_' . $i . '_description'] ?? null }}</p>
                                     </div>
-                                </a>
+                                </div>
                             </div>
                         @endfor
                     </div>
@@ -374,17 +377,6 @@
                     </div>
                 </a>
 
-            </div>
-            <div class="row pt-4">
-                <div class="col-12">
-                    <div class="text-center">
-                        <p class="registration_p">Charitable Registration: <span
-                                class="registration_span">119278216RR0001</span> </p>
-                        <p class="registration_p_assebility pb-5"><span class="registration_span">Privacy policy</span>
-                            |<span class="registration_span px-1"> Accessibility </span> | <span
-                                class="registration_span"> Contact Us </span></p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

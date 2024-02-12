@@ -16,8 +16,12 @@
 <body>
     @extends('layouts.app')
     @section('css_after')
-
         <style>
+            .hamburger_background {
+                background-color: white;
+                border-radius: 4px;
+            }
+
             .navbar_bg::before,
             .navbar_bg::after {
                 content: "";
@@ -73,7 +77,7 @@
                 <nav class="navbar navbar-expand-lg">
                     <a class="navbar-brand nav_link mt-3" href="#"><img
                             src="{{ asset('assets/images/swift-logo.png') }}" alt=""></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    <button class="navbar-toggler hamburger_background" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -189,8 +193,9 @@
                                 <h6 class="package-title head-4 packages-sub-header">
                                     {{ $data['our_package_heading_' . $i] ?? null }}</h6>
                                 <ul>
-                                    @foreach (preg_split('/\R/', $data['our_package_'.$i.'_description']) as $line)
-                                        <li><img src="./assets/images/Ellipse 6.png" alt="" class="me-4">{{$line}}</li>
+                                    @foreach (preg_split('/\R/', $data['our_package_' . $i . '_description']) as $line)
+                                        <li><img src="./assets/images/Ellipse 6.png" alt=""
+                                                class="me-4">{{ $line }}</li>
                                     @endforeach
                                 </ul>
                             </div>
@@ -369,50 +374,6 @@
                 </div>
             </div>
         </section>
-
-        <footor>
-            <div class="footor-link">
-                <div class="container">
-                    <div class="row text-white">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="pchl-text">
-                                <h6 class="head-3">PCHL <span class="hyper-img"><img src="./assets/images/plus-logo.png"
-                                            alt=""></span>
-                                </h6>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet consectetur. Adipiscing quis mauris bibendum vitae mauris et
-                                porttitor. Pellentesque.</p>
-                            <div class="social-icons pb-lg-0 pb-md-0 pb-3">
-                                <a href="#" class="social-link"><img src="./assets/images/youtube.png"
-                                        alt=""></a>
-                                <a href="#" class="social-link"><img src="./assets/images/facebook.png"
-                                        alt=""></a>
-                                <a href="#" class="social-link"><img src="./assets/images/whatapp.png"
-                                        alt=""></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="text-lg-end text-md-end text-sm-center">
-                                <div class="contact-info">
-                                    <ul>
-                                        <li>
-                                            <h6 class="head-5 text-lg-end text-md-end text-sm-center">Contact Info</h6>
-                                        </li>
-                                        <li><a href="#">+45678765434567</a></li>
-                                        <li><a href="#">Lorem ipsum dolor</a></li>
-                                        <li><a href="#">Lorem ipsum dolor</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="text-white">
-                    <div class="row text-center text-white">
-                        <p class="pt-3">Powered by PivotPoint - Copyright © Swift Ride Pro 2024</p>
-                    </div>
-                </div>
-            </div>
-        </footor>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">

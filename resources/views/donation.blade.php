@@ -1,11 +1,6 @@
 @extends('layouts.app')
 @section('css_after')
     <style>
-        .navbar_bg {
-            background-image: url('{{ asset('frontend/donation/header/header_background_img.png') }}') !important;
-        }
-    </style>
-      <style>
         .navbar_bg::before {
             background: url('{{ asset('header_bg.png') }}') center/cover no-repeat;
             z-index: -1;
@@ -77,7 +72,8 @@
                 <div class="col-12">
                     <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="18"
                         aria-valuemin="0" aria-valuemax="100" style="height: 33px;">
-                        <div class="progress-bar progress_gray_bg" style="width: 18%">18%</div>
+                        <div class="progress-bar progress_gray_bg" style="width: {{ $data['percentage'] ?? null }}%">
+                            {{ $data['percentage'] ?? null }}%</div>
                     </div>
                 </div>
             </div>
@@ -99,9 +95,11 @@
             </div>
             <div class="row pb-5">
                 <div class="col-12">
-                    <div class="donate_bar text-center">
-                        <span class="">Donate</span>
-                    </div>
+                    <a href="{{ $data['btn_link'] ?? '' }}" style="text-decoration: none;">
+                        <div class="donate_bar text-center">
+                            <span class="">Donate</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -122,11 +120,12 @@
                     <div class="col-lg-3 col-md-3 col-12">
                         <div class="donation_box_page mt-lg-5 mt-md-3 mt-3 mx-lg-2">
                             <div>
-                                <img src="{{ asset('frontend/donation/donations_accomplish_'.$i.'/donations_accomplish_img_'.$i.'.png') }}" alt="">
+                                <img src="{{ asset('frontend/donation/donations_accomplish_' . $i . '/donations_accomplish_img_' . $i . '.png') }}"
+                                    alt="">
                                 <h3 class="donation_page_mission_class pt-4">
-                                    {{ $data['donations_accomplish_heading_'.$i.''] ?? null }}</h3>
+                                    {{ $data['donations_accomplish_heading_' . $i . ''] ?? null }}</h3>
                                 <p class="donations_phcl_p_about_page pt-2 pb-3">
-                                    {{ $data['donations_accomplish_'.$i.'_description'] ?? null }}</p>
+                                    {{ $data['donations_accomplish_' . $i . '_description'] ?? null }}</p>
                             </div>
                         </div>
                     </div>

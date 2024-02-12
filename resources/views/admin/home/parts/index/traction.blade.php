@@ -30,12 +30,6 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label class="col-12">Link</label>
-                                <div class="col-12">
-                                    <textarea class="form-control" name="type[our_traction_link]" required style="height: 100px">{{ $data['our_traction_link'] ?? null }}</textarea>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
                                 <label class="col-12">Description</label>
                                 <div class="col-12">
                                     <textarea class="form-control" name="type[our_traction_{{ $i }}_description]" required style="height: 100px">{{ $data['our_traction_'.$i.'_description'] ?? null }}</textarea>
