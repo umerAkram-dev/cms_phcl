@@ -14,7 +14,7 @@
                 @include('admin.home.parts.about_us.header')
                 @include('admin.home.parts.about_us.about')
                 @include('admin.home.parts.about_us.team')
-                @include('admin.home.parts.about_us.gallery')
+                {{-- @include('admin.home.parts.about_us.gallery') --}}
             </div>
         </section>
     </main>

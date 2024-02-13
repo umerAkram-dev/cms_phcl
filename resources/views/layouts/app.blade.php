@@ -18,6 +18,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d0a01f8990.js" crossorigin="anonymous"></script>
     @yield('css_after')
+    <style>
+
+    </style>
 </head>
 
 <body>

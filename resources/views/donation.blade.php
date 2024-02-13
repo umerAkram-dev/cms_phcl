@@ -21,7 +21,7 @@
             <nav class="navbar navbar-expand-lg bg-transparent">
                 @include('layouts.partials.navbar')
             </nav>
-            <div class="container">
+            <div class="container" style="position: sticky;top: 100%; ">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="">

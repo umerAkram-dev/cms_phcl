@@ -105,6 +105,13 @@
                         Ride in Comfort
                     </h6>
                 </div>
+            </nav>
+            <div class="page-heading">
+                <h6 class="head-2 page-header">
+                    Your Trusted Travel Partner, <br>
+                    Ride in Comfort
+                </h6>
+            </div>
             </div>
         </header>
 

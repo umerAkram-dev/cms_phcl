@@ -1,11 +1,7 @@
 @extends('layouts.app')
 @section('css_after')
-    {{-- <style>
-        .navbar_bg {
-            background-image: url('{{ asset('frontend/about_us/header/header_background_img.png') }}') !important;
-        }
-    </style> --}}
-      <style>
+
+    <style>
         .navbar_bg::before {
             background: url('{{ asset('header_bg.png') }}') center/cover no-repeat;
             z-index: -1;
@@ -20,12 +16,12 @@
     </style>
 @endsection
 @section('content')
- <section>
+    <section>
         <div class="navbar_bg">
             <nav class="navbar navbar-expand-lg bg-transparent">
                 @include('layouts.partials.navbar')
             </nav>
-            <div class="container">
+            <div class="container" style="position: sticky;top: 100%; ">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-12">
                         <div class="">
@@ -44,9 +40,7 @@
                 </div>
             </div>
     </section>
-
     <!-- About PHCL  -->
-
     <section>
         <div class="about_phcl_page">
             <div class="container">
@@ -159,7 +153,7 @@
     <!-- Gallery Section  -->
 
     <section class="mb-5">
-             <div class="gallery_top_bottom_space">
+        <div class="gallery_top_bottom_space">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -178,7 +172,7 @@
                         <div class="parent-container">
                             @for ($i = 1; $i < 4; $i++)
                                 @php
-                                    $folderPath = public_path('frontend/home/gallery_col_'.$i);
+                                    $folderPath = public_path('frontend/home/gallery_col_' . $i);
                                     if (!is_dir($folderPath)) {
                                         if (!mkdir($folderPath, 0777, true)) {
                                             die('Failed to create folder...');
@@ -189,9 +183,10 @@
 
                                 <div class="child-container">
                                     @foreach ($files as $file)
-                                    <a href="{{ asset('frontend/home/gallery_col_'.$i.'/' . $file->getFilename()) }}"  target="_blank">
-                                        <img src="{{ asset('frontend/home/gallery_col_'.$i.'/' . $file->getFilename()) }}"
-                                            width="100%" height="auto">
+                                        <a href="{{ asset('frontend/home/gallery_col_' . $i . '/' . $file->getFilename()) }}"
+                                            target="_blank">
+                                            <img src="{{ asset('frontend/home/gallery_col_' . $i . '/' . $file->getFilename()) }}"
+                                                width="100%" height="auto">
                                         </a>
                                     @endforeach
                                 </div>
