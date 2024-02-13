@@ -39,7 +39,7 @@
             }
 
             .navbar_bg::after {
-                background: url('{{ asset('frontend/about_us/about_pchl_1/about_pchl_img_1.png') }}') center/cover no-repeat !important;
+                background: url('{{ asset('frontend/ride/header/header_background_img.png') }}') center/cover no-repeat !important;
                 z-index: -2;
                 height: 41.5em;
             }
@@ -68,8 +68,8 @@
                 height: 68%;
             }
         </style>
-
     @endsection
+
     @section('content')
         {{-- @dd($data) --}}
         <header class=" navbar_bg">
@@ -82,7 +82,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    {{-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link nav_link" aria-current="page" href="#">HOME</a>
@@ -97,7 +97,7 @@
                                 <a class="nav-link nav_link" href="#">NATURAL REMEDIES</a>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </nav>
                 <div class="page-heading">
                     <h6 class="head-2 page-header">
@@ -138,11 +138,12 @@
                     @for ($i = 1; $i < 4; $i++)
                         <div class="col-lg-4 col-md-4">
                             <div class="card service-card p-md-4 p-3 ml-5">
-                                <img src="./assets/images/Group 9422.png" alt="Affordable Rides" class="service-img">
+                                <img src="{{ asset('frontend/ride/ride_' . $i . '/ride_box_img_' . $i . '.png') }}"
+                                    alt="Affordable Rides" class="service-img">
                                 <h6 class="mt-2 mt-sm-0 head-4 service-header pt-3 pb-2">
-                                    {{ $data['ride_heading_1'] ?? null }}
+                                    {{ $data['ride_heading_' . $i . ''] ?? null }}
                                 </h6>
-                                <p class="service-text">{{ $data['ride_1_description'] ?? null }}</p>
+                                <p class="service-text">{{ $data['ride_' . $i . '_description'] ?? null }}</p>
                             </div>
                         </div>
                     @endfor
@@ -374,11 +375,7 @@
                 </div>
             </div>
         </section>
+    @endsection
+</body>
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
-
-    </body>
-
-    </html>
+</html>
