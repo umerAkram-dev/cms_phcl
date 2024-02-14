@@ -40,11 +40,11 @@
                     <i class="bi bi-file-earmark-fill"></i><span>Treatments</span>
                 </a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/ride_page*') ? '' : 'collapsed' }}" href="{{ route('admin.ride_page') }}">
                     <i class="bi bi-file-earmark-fill"></i><span>Ride</span>
                 </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('admin/qurey_listing*')? '' : 'collapsed'}}" data-bs-target="#forms-nav" href="{{ route('admin.qurey_listing') }}">
                     <i class="bi bi-file-earmark-fill"></i><span>User Queries</span>
