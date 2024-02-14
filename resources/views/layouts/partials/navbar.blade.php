@@ -14,14 +14,14 @@
     }
 
     .header_text {
-        background: #A3E48F;
+        background: #fff;
         padding: 6px 15px;
         border-radius: 2rem;
         margin-bottom: 1rem !important;
     }
 
     .solid_navbar {
-        background: #A3E48F;
+        background: #fff;
     }
 
     .padding_solid_navbar {

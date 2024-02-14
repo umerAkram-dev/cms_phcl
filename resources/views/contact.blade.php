@@ -1,10 +1,6 @@
 @extends('layouts.app')
 @section('css_after')
-    <style>
-        .navbar_bg {
-            background-image: url('{{ asset('frontend/contact/header/header_background_img.png') }}') !important;
-        }
-    </style>
+
     <style>
         .navbar_bg::before {
             background: url('{{ asset('header_bg.png') }}') center/cover no-repeat;
