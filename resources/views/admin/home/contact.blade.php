@@ -10,7 +10,7 @@
     <main id="main" class="main">
         <section class="section">
             <div class="row">
-                @include('admin.home.parts.highlights.header')
+                @include('admin.home.parts.contact.header')
             </div>
         </section>
     </main>
