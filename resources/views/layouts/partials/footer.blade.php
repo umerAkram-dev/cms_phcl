@@ -54,11 +54,11 @@
                     <div class="footer_logo">
                         <a class="me-5" style="text-decoration: none" href="https://azsic.live/">
 
-                            <img width="60px" src="{{ asset('assets/images/PPI_Logo.png') }}"
+                            <img width="70px" src="{{ asset('assets/images/PPI_Logo.png') }}"
                                 alt="logo">
                         </a>
                         <a href="https://azsic.live/">
-                            <img width="60px" src="{{ asset('frontend/footer/bottom_imgs/bottom_img_2.png') }}"
+                            <img width="70px" src="{{ asset('frontend/footer/bottom_imgs/bottom_img_2.png') }}"
                                 alt="logo">
                         </a>
                     </div>
