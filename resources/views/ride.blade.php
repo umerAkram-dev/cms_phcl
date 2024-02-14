@@ -296,16 +296,16 @@
                                 <h6 style="color: #81A7BA;">{{ $data['pricing_description_' . $i . ''] ?? null }}</h6>
                                 <ul class="text-start">
                                     <li style="color: #034f75;"><img src="./assets/images/tick.png" alt=""
-                                            class="me-4">{{ $data['features_1'] ?? null }}
+                                            class="me-4">{{ $data['features_'.$i] ?? null }}
                                     </li>
                                     <li style="color: #034f75"><img src="./assets/images/tick.png" alt=""
-                                            class="me-4">{{ $data['features_2'] ?? null }}</li>
+                                            class="me-4">{{ $data['features_'.$i] ?? null }}</li>
                                 </ul>
                                 <div class="float-logo m-auto">
                                     <img src="{{ asset('frontend/ride/pricing_plan_' . $i . '/pricing_plan' . $i . '.png') }}"
                                         alt="logo-back" class="float-logo">
                                 </div>
-                                <h6 class="mb-5 head-3 swift">{{ $data['features_1'] ?? null }}</h6>
+                                <h6 class="mb-5 head-3 swift">{{ $data['features_'.$i] ?? null }}</h6>
                             </div>
                         </div>
                     @endfor
