@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class RideController extends Controller
 {
     public function index(){
-        $contents = Content::where('page', 'ride')->get();
+        $contents = Content::where('page', 'ride')->Orwhere('page','ride_footer')->get();
         $data = [];
         foreach ($contents as $value) {
             $data[$value->type] = $value->content;

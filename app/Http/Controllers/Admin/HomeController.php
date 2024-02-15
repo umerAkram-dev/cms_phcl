@@ -65,7 +65,7 @@ class HomeController extends Controller
     public function ride_page()
     {
         $data = [];
-        $contents = Content::where('page', 'ride')->get();
+        $contents = Content::where('page', 'ride')->Orwhere('page','ride_footer')->get();
         foreach ($contents as $value) {
             $data[$value->type] = $value->content;
         }

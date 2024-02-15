@@ -14,11 +14,6 @@ body {
     font-family: 'DM Sans', sans-serif !important;
 }
 
-.header {
-    background-image: url("../images/header-bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 
 .page-heading {
     margin-top: 550px;
