@@ -24,11 +24,6 @@
             background-repeat: no-repeat;
         }
 
-        .hamburger_background {
-            background-color: white;
-            border-radius: 4px;
-        }
-
         @media (max-width: 767px) {
             .conatiner_position {
                 position: fixed;
@@ -38,7 +33,8 @@
             }
         }
 
-        end/header/header/tittle_icon.png            background: #fff;
+        .header_text {
+            background: #fff;
             padding: 6px 15px;
             border-radius: 2rem;
             margin-bottom: 1rem !important;
@@ -52,6 +48,11 @@
             padding: 0px 15px;
             border-radius: 2rem;
         }
+
+        .footer_logo {
+            display: flex;
+            justify-content: center
+        }
     </style>
 </head>
 
@@ -60,8 +61,8 @@
     <header class="header">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand nav_link mt-3" href="#"><img src="{{asset('frontend/ride/heading/logo_header.png')}}"
-                        alt=""></a>
+                <a class="navbar-brand nav_link mt-3" href="#"><img
+                        src="{{ asset('frontend/ride/heading/logo_header.png') }}" alt=""></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -554,66 +555,43 @@
     <footor>
         <div class="footor-link">
             <div class="container">
-                <div class="">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-12">
-                            <img src="{{ asset('frontend/ride_footer/header/logo_footer.png') }}" alt="">
-                            <p class="footer_p_link pt-lg-4 pt-md-3 pt-3">{{ $data['footer_description'] ?? null }}
-                            </p>
-                            <div class="pt-3 pb-3">
-                                @foreach ($social_media_logos as $key => $social_media_logo)
-                                    <?php $indexedKey = $key + 1; ?>
-                                    <a href="{{ $data['social_link_' . $indexedKey . ''] ?? null }}"
-                                        style="text-decoration: none">
-                                        <img src="./assets/images/{{ $social_media_logo }}.png" class="me-4"
-                                            alt="">
-                                    </a>
-                                @endforeach
-                            </div>
+                <div class="row text-white">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="pchl-text">
+                            <h6 class="head-3"> <span class="hyper-img"><img
+                                        src="{{ asset('frontend/ride_footer/header/logo_footer.png')}}"
+                                        alt=""></span>
+                            </h6>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-12">
-
-                            <h3 class="pchl_info pt-4">PCHL Info</h3>
-                            @for ($i = 1; $i < 4; $i++)
-                                <a href="{{ $data['about_link_' . $i . ''] ?? null }}" style="text-decoration: none">
-                                    <p class="pchl_info_p pt-lg-3 pt-md-3 pt-3 mb-2">
-                                        {{ $data['about_name_' . $i] ?? null }}
-                                    </p>
-                                </a>
-                            @endfor
+                        <p>{{ $data['footer_description'] ?? null }}</p>
+                        <div class="social-icons pb-lg-0 pb-md-0 pb-3">
+                            <a href="#" class="social-link"><img src="./assets/images/youtube.png"
+                                    alt=""></a>
+                            <a href="#" class="social-link"><img src="./assets/images/facebook.png"
+                                    alt=""></a>
+                            <a href="#" class="social-link"><img src="./assets/images/whatapp.png"
+                                    alt=""></a>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-12">
-                            <div class="ps-lg-5">
-                                <h3 class="pchl_info pt-4">Contact Info</h3>
-                                @for ($i = 1; $i < 4; $i++)
-                                    <p class="pchl_info_p pt-lg-3 pt-md-3 pt-3 mb-2">
-                                        {{ $data['contact_info_' . $i] ?? null }}
-                                    </p>
-                                @endfor
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="text-lg-end text-md-end text-sm-center">
+                            <div class="contact-info">
+                                <ul>
+                                    <li>
+                                        <h6 class="head-5 text-lg-end text-md-end text-sm-center">Contact Info</h6>
+                                    </li>
+                                    @for ($i = 1; $i < 4; $i++)
+                                        <li><a hre#f="#"> {{$data['contact_info_' . $i] ?? null}}</a></li>
+                                    @endfor
 
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-
-                <div class=" border_bottom_white mt-3">
-                    <div class="footer_copy_right">
-                        <div class="footer_logo">
-                            <a class="me-5" style="text-decoration: none" href="https://azsic.live/">
-
-                                <img width="70px" src="{{ asset('assets/images/PPI_Logo.png') }}" alt="logo">
-                            </a>
-                            <a href="https://azsic.live/">
-                                <img width="70px"
-                                    src="{{ asset('frontend/ride_footer/bottom_imgs/bottom_img_2.png') }}"
-                                    alt="logo">
-                            </a>
-                        </div>
-                        &nbsp;
-                        <p>Designed &amp; Developed by PivotPoint Innovation © All Rights Reserved 2023</p>
-                    </div>
+                <hr class="text-white">
+                <div class="row text-center text-white">
+                    <p class="pt-3">Powered by PivotPoint - Copyright © Swift Ride Pro 2024</p>
                 </div>
             </div>
         </div>
