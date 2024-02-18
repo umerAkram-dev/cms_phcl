@@ -8,7 +8,7 @@
     <title>PCHL</title>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     {{-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> --}}
-    <link rel="icon" type="image/x-icon" href="{{ asset('rides_frontend/header/header/tittle_icon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('frontend/ride/heading/tittle_icon.png') }}">
     <link rel="stylesheet" href="{{ asset('rides_frontend/assets/styles/style.css') }}">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,12 +18,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d0a01f8990.js" crossorigin="anonymous"></script>
     <style>
+        .header {
+            background: url('{{ asset('frontend/ride/header/header_background_img.png') }}') center/cover no-repeat !important;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
 
-.header {
-    background: url('{{ asset('frontend/ride/header/header_background_img.png') }}') center/cover no-repeat !important;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+        .hamburger_background {
+            background-color: white;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 767px) {
+            .conatiner_position {
+                position: fixed;
+                top: 0px;
+                z-index: 1000;
+                background: #26252573;
+            }
+        }
+
+        end/header/header/tittle_icon.png            background: #fff;
+            padding: 6px 15px;
+            border-radius: 2rem;
+            margin-bottom: 1rem !important;
+        }
+
+        .solid_navbar {
+            background: #fff;
+        }
+
+        .padding_solid_navbar {
+            padding: 0px 15px;
+            border-radius: 2rem;
+        }
     </style>
 </head>
 
@@ -32,29 +60,56 @@
     <header class="header">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
-                <a class="navbar-brand nav_link mt-3" href="#"><img src="./assets/images/swift-logo.png"
+                <a class="navbar-brand nav_link mt-3" href="#"><img src="{{asset('frontend/ride/heading/logo_header.png')}}"
                         alt=""></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link nav_link" aria-current="page" href="#">HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav_link" href="#">CLASSES</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav_link" aria-current="page" href="#">LIFESTYLE CHANGES</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav_link" href="#">NATURAL REMEDIES</a>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <div class="">
+
+                        <div class="d-flex justify-content-around justify-content-lg-end justify-content-md-end">
+                            <p class="nav-link nav_links mb-0 mt-3 header_text">{{ $data['header_text'] ?? null }}</p>
+                        </div>
+                        <div class="d-lg-flex d-md-flex justify-content-end padding_solid_navbar solid_navbar">
+                            <li class="nav-item">
+                                <a class="nav-link nav_links {{ Request::is('/') ? 'nav_links_blue ' : '' }}"
+                                    href="{{ route('landing') }}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav_links {{ Request::is('aboutus') ? 'nav_links_blue ' : '' }}"
+                                    href="{{ route('aboutus') }}">About us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav_links {{ Request::is('donation') ? 'nav_links_blue ' : '' }}"
+                                    href="{{ route('donation') }}">Donations</a>
+                            </li>
+                            <li class="nav-item dropdown"> <!-- Dropdown menu -->
+                                <a class="nav-link nav_links dropdown-toggle {{ Request::is('programhighlights/cooking_classes') || Request::is('programhighlights/lifestyle_changes') || Request::is('programhighlights/treatments') ? 'nav_links_blue ' : '' }}"
+                                    href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    Programs
+                                </a>
+                                <div class="dropdown-menu solid_navbar" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item {{ request()->is('programhighlights/cooking_classes') ? 'active' : '' }}"
+                                        href="{{ route('programhighlights', 'cooking_classes') }}">Cooking Classes</a>
+                                    <a class="dropdown-item {{ request()->is('programhighlights/lifestyle_changes') ? 'active' : '' }}"
+                                        href="{{ route('programhighlights', 'lifestyle_changes') }}">Lifestyle
+                                        Changes</a>
+                                    <a class="dropdown-item {{ request()->is('programhighlights/treatments') ? 'active' : '' }}"
+                                        href="{{ route('programhighlights', 'treatments') }}">Treatments</a>
+                                    <!-- Add more dropdown items as needed -->
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav_links" href="{{ route('contact') }}">Contact</a>
+                            </li>
+                        </div>
+                    </div>
+                    </li>
+                </ul>
             </nav>
             <div class="page-heading">
                 <h6 class="head-2 page-header">
@@ -494,71 +549,75 @@
 
     @php
 
-    $social_media_logos = ['youtube', 'facebook', 'whatapp'];
-@endphp
-<footor>
-    <div class="footor-link">
-        <div class="container">
-            <div class="">
-                <div class="row">
-                    <div class="col-lg-3 col-md-3 col-12">
-                        <img src="{{ asset('frontend/ride_footer/header/logo_footer.png') }}" alt="">
-                        <p class="footer_p_link pt-lg-4 pt-md-3 pt-3">{{ $data['footer_description'] ?? null }}</p>
-                        <div class="pt-3 pb-3">
-                            @foreach ($social_media_logos as $key => $social_media_logo)
-                                <?php $indexedKey = $key + 1; ?>
-                                <a href="{{ $data['social_link_' . $indexedKey . ''] ?? null }}" style="text-decoration: none">
-                                    <img src="./assets/images/{{ $social_media_logo }}.png" class="me-4"
-                                        alt="">
-                                </a>
-                            @endforeach
+        $social_media_logos = ['youtube', 'facebook', 'whatapp'];
+    @endphp
+    <footor>
+        <div class="footor-link">
+            <div class="container">
+                <div class="">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-12">
+                            <img src="{{ asset('frontend/ride_footer/header/logo_footer.png') }}" alt="">
+                            <p class="footer_p_link pt-lg-4 pt-md-3 pt-3">{{ $data['footer_description'] ?? null }}
+                            </p>
+                            <div class="pt-3 pb-3">
+                                @foreach ($social_media_logos as $key => $social_media_logo)
+                                    <?php $indexedKey = $key + 1; ?>
+                                    <a href="{{ $data['social_link_' . $indexedKey . ''] ?? null }}"
+                                        style="text-decoration: none">
+                                        <img src="./assets/images/{{ $social_media_logo }}.png" class="me-4"
+                                            alt="">
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-12">
+                        <div class="col-lg-3 col-md-3 col-12">
 
-                        <h3 class="pchl_info pt-4">PCHL Info</h3>
-                        @for ($i = 1; $i < 4; $i++)
-                            <a href="{{ $data['about_link_' . $i . ''] ?? null }}" style="text-decoration: none">
-                                <p class="pchl_info_p pt-lg-3 pt-md-3 pt-3 mb-2">{{ $data['about_name_' . $i] ?? null}}
-                                </p>
-                            </a>
-                        @endfor
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-12">
-                        <div class="ps-lg-5">
-                            <h3 class="pchl_info pt-4">Contact Info</h3>
+                            <h3 class="pchl_info pt-4">PCHL Info</h3>
                             @for ($i = 1; $i < 4; $i++)
-                                <p class="pchl_info_p pt-lg-3 pt-md-3 pt-3 mb-2">{{ $data['contact_info_' . $i ]??null }}
-                                </p>
+                                <a href="{{ $data['about_link_' . $i . ''] ?? null }}" style="text-decoration: none">
+                                    <p class="pchl_info_p pt-lg-3 pt-md-3 pt-3 mb-2">
+                                        {{ $data['about_name_' . $i] ?? null }}
+                                    </p>
+                                </a>
                             @endfor
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-12">
+                            <div class="ps-lg-5">
+                                <h3 class="pchl_info pt-4">Contact Info</h3>
+                                @for ($i = 1; $i < 4; $i++)
+                                    <p class="pchl_info_p pt-lg-3 pt-md-3 pt-3 mb-2">
+                                        {{ $data['contact_info_' . $i] ?? null }}
+                                    </p>
+                                @endfor
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
+            <div class="container">
 
-            <div class=" border_bottom_white mt-3">
-                <div class="footer_copy_right">
-                    <div class="footer_logo">
-                        <a class="me-5" style="text-decoration: none" href="https://azsic.live/">
+                <div class=" border_bottom_white mt-3">
+                    <div class="footer_copy_right">
+                        <div class="footer_logo">
+                            <a class="me-5" style="text-decoration: none" href="https://azsic.live/">
 
-                            <img width="70px" src="{{ asset('assets/images/PPI_Logo.png') }}"
-                                alt="logo">
-                        </a>
-                        <a href="https://azsic.live/">
-                            <img width="70px" src="{{ asset('frontend/ride_footer/bottom_imgs/bottom_img_2.png') }}"
-                                alt="logo">
-                        </a>
+                                <img width="70px" src="{{ asset('assets/images/PPI_Logo.png') }}" alt="logo">
+                            </a>
+                            <a href="https://azsic.live/">
+                                <img width="70px"
+                                    src="{{ asset('frontend/ride_footer/bottom_imgs/bottom_img_2.png') }}"
+                                    alt="logo">
+                            </a>
+                        </div>
+                        &nbsp;
+                        <p>Designed &amp; Developed by PivotPoint Innovation © All Rights Reserved 2023</p>
                     </div>
-                    &nbsp;
-                    <p>Designed &amp; Developed by PivotPoint Innovation © All Rights Reserved 2023</p>
                 </div>
             </div>
         </div>
-    </div>
-</footor>
+    </footor>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

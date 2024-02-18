@@ -10,11 +10,10 @@
     <main id="main" class="main">
         <section class="section">
             <div class="row">
-
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Header</h5>
+                            <h5 class="card-title">Top Header</h5>
                             <form action="{{ route('admin.update_content') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="page" value="{{ $page = 'ride' }}">
