@@ -18,10 +18,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d0a01f8990.js" crossorigin="anonymous"></script>
     <style>
-        .header {
-            background: url('{{ asset('frontend/ride/header/header_background_img.png') }}') center/cover no-repeat !important;
+        .hamburger_background {
+            background-color: white;
+            border-radius: 4px;
+        }
+
+        @media (max-width: 767px) {
+            .conatiner_position {
+                position: fixed;
+                top: 0px;
+                z-index: 1000;
+                background: #26252573;
+            }
+        }
+
+        .header_text {
+            background: #fff;
+            padding: 6px 15px;
+            border-radius: 2rem;
+            margin-bottom: 1rem !important;
+        }
+
+        .solid_navbar {
+            background: #fff;
+        }
+
+        .padding_solid_navbar {
+            padding: 0px 15px;
+            border-radius: 2rem;
+        }
+
+        .navbar_bg {
+            height: 600px;
             background-size: cover;
+            background-position: center;
+            /* You can adjust this to top, bottom, left, right, etc. */
+            width: 100%;
             background-repeat: no-repeat;
+        }
+
+        .navbar_bg::before {
+            background: url('{{ asset('header_ride.png') }}') center/cover no-repeat;
+            z-index: -1;
+            height: 41.7em;
+        }
+
+        .navbar_bg::after {
+            background: url('{{ asset('frontend/donation/header/header_background_img.png') }}') center/cover no-repeat !important;
+            z-index: -2;
+            height: 41.5em;
+        }
+
+        .navbar_bg::before,
+        .navbar_bg::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
         }
 
         @media (max-width: 767px) {
@@ -55,10 +110,85 @@
         }
     </style>
 </head>
-
 <body>
+    <section>
+        <div class="navbar_bg">
+            <nav class="navbar navbar-expand-lg bg-transparent">
+                <div class="container conatiner_position">
+                    <a class="navbar-brand" href="/"><img
+                            src="{{ asset('frontend/header/header/logo_header.png') }}" alt=""></a>
+                    <button class="navbar-toggler hamburger_background" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <div class="">
+                                <div class="d-lg-flex d-md-flex justify-content-end padding_solid_navbar solid_navbar">
+                                    <li class="nav-item">
+                                        <a class="nav-link nav_links {{ Request::is('/') ? 'nav_links_blue ' : '' }}"
+                                            href="{{ route('landing') }}">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link nav_links {{ Request::is('aboutus') ? 'nav_links_blue ' : '' }}"
+                                            href="{{ route('aboutus') }}">About us</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link nav_links {{ Request::is('donation') ? 'nav_links_blue ' : '' }}"
+                                            href="{{ route('donation') }}">Donations</a>
+                                    </li>
+                                    <li class="nav-item dropdown"> <!-- Dropdown menu -->
+                                        <a class="nav-link nav_links dropdown-toggle {{ Request::is('programhighlights/cooking_classes') || Request::is('programhighlights/lifestyle_changes') || Request::is('programhighlights/treatments') ? 'nav_links_blue ' : '' }}"
+                                            href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false">
+                                            Programs
+                                        </a>
+                                        <div class="dropdown-menu solid_navbar" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item {{ request()->is('programhighlights/cooking_classes') ? 'active' : '' }}"
+                                                href="{{ route('programhighlights', 'cooking_classes') }}">Cooking
+                                                Classes</a>
+                                            <a class="dropdown-item {{ request()->is('programhighlights/lifestyle_changes') ? 'active' : '' }}"
+                                                href="{{ route('programhighlights', 'lifestyle_changes') }}">Lifestyle
+                                                Changes</a>
+                                            <a class="dropdown-item {{ request()->is('programhighlights/treatments') ? 'active' : '' }}"
+                                                href="{{ route('programhighlights', 'treatments') }}">Treatments</a>
+                                            <!-- Add more dropdown items as needed -->
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link nav_links" href="{{ route('contact') }}">Contact</a>
+                                    </li>
+                                </div>
+                            </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container" style="position: sticky;top: 100%; ">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <div class="">
+                            <div class="">
+                                <div>
 
-    <header class="header">
+                                    <h6 class="head-2 page-header">
+                                        {{$data['header_heading']??null}}
+                                    </h6>
+
+                                </div>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{-- <header class="header">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
                 <a class="navbar-brand nav_link mt-3" href="#"><img
@@ -119,7 +249,7 @@
                 </h6>
             </div>
         </div>
-    </header>
+    </header> --}}
 
     <section class="banner">
         <div class="row g-0 p-0">
@@ -559,7 +689,7 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="pchl-text">
                             <h6 class="head-3"> <span class="hyper-img"><img
-                                        src="{{ asset('frontend/ride_footer/header/logo_footer.png')}}"
+                                        src="{{ asset('frontend/ride_footer/header/logo_footer.png') }}"
                                         alt=""></span>
                             </h6>
                         </div>
@@ -581,7 +711,7 @@
                                         <h6 class="head-5 text-lg-end text-md-end text-sm-center">Contact Info</h6>
                                     </li>
                                     @for ($i = 1; $i < 4; $i++)
-                                        <li><a hre#f="#"> {{$data['contact_info_' . $i] ?? null}}</a></li>
+                                        <li><a hre#f="#"> {{ $data['contact_info_' . $i] ?? null }}</a></li>
                                     @endfor
 
                                 </ul>
