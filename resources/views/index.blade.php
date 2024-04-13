@@ -56,8 +56,10 @@
                         <div>
                             <h3 class="about_phcl_h3">About PCHL</h3>
                             <p class="about_phcl_p">{{ $data['about_pchl_description'] ?? null }}</p>
-                            <h5 class="about_phcl_read_more pt-2 pb-lg-0 pb-md-0 pb-3">Read More About Us <img
+                            <a href="{{ route('aboutus') }}" style="text-decoration: none">
+                                <h5 class="about_phcl_read_more pt-2 pb-lg-0 pb-md-0 pb-3">Read More About Us <img
                                     src="./assets/images/Arrow 3.png" class="ps-2" alt=""></h5>
+                            </a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-12">
@@ -178,13 +180,16 @@
 
     <section>
         <div class="gallery_top_bottom_space">
-            <div class="traction_bg pb-5">
+            <div class="text-center">
+                <h3 class="cooking_classes_h3 py-lg-5 py-md-4 py-3">Our Traction</h3>
+            </div>
+            <div class="traction_bg pb-5 py-3">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <div class="text-center">
+                            {{-- <div class="text-center">
                                 <h3 class="cooking_classes_h3 py-lg-5 py-md-4 py-3">Our Traction</h3>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="row">
@@ -221,7 +226,7 @@
                 </div>
                 <div class="row">
                     @for ($i = 1; $i < 4; $i++)
-                        <div class="col-lg-4 col-md-4 col-12">
+                        <div class="col-lg-4 col-md-4 col-12 team_{{ $i }}" onclick="showTeam({{ $i}})">
                             <div class="text-center">
                                 <img src="{{ asset('frontend/' . $page . '/our_teammate_' . $i . '/our_teammate_img_' . $i . '.png') }}"
                                     alt="">
@@ -234,7 +239,7 @@
                                     <div>
                                         <h3 class="team_member_name mt-3">
                                             {{ $data['our_teammate_heading_' . $i . ''] ?? null }}</h3>
-                                        <p class="cooking_classes_p mb-3">
+                                        <p class="cooking_classes_p mb-3 d-none">
                                             {{ $data['our_teammate_' . $i . '_description'] ?? null }}</p>
                                     </div>
                                 </div>

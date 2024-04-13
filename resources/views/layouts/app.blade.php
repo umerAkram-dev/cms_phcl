@@ -18,18 +18,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Sora&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d0a01f8990.js" crossorigin="anonymous"></script>
     @yield('css_after')
-    <style>
-
-    </style>
 </head>
 
 <body>
     @yield('content')
     @include('layouts.partials.footer')
+    <div class="modal fade" id="teamModal" tabindex="-1" aria-labelledby="teamModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="team-modal-body">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="{{ asset('js/script.js') }}"></script>
+    <script>
+        function showTeam(id) {
+            var txt = $('.team_' + id).html()
+            $('#teamModal').modal('show')
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = txt;
+
+            var elementsWithDNoneClass = tempDiv.querySelectorAll('.d-none');
+            elementsWithDNoneClass.forEach(function(element) {
+                element.classList.remove('d-none');
+            });
+
+            var modifiedHTMLString = tempDiv.innerHTML;
+            console.log('modifiedHTMLString: ', modifiedHTMLString);
+            $('.team-modal-body').html(modifiedHTMLString)
+        }
+    </script>
 </body>
 
 </html>

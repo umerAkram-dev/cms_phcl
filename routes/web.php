@@ -40,6 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/delete_img/{col}/{img}', 'Admin\HomeController@delete_img')->name('admin.delete_img');
 
     Route::get('/admin/qurey_listing', 'Admin\HomeController@QureyListing')->name('admin.qurey_listing');
+    Route::get('/admin/qurey/delete/{id}', 'Admin\HomeController@Qureydelete')->name('admin.qurey.delete');
 
     Route::get('/admin/change_password/index', 'Admin\ChangePasswordController@index')->name('admin.change_password_index');
     Route::post('/admin/change_password', 'Admin\ChangePasswordController@ChangePassword')->name('admin.change_password');

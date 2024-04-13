@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-12">
+                    <div class="col-lg-4 col-md-4 col-12 team_1" onclick="showTeam(1)">
                         <div class="text-center">
                             <img src="{{ asset('frontend/about_us/out_team1/our_teammate_img_1.png') }}" alt="">
                         </div>
@@ -108,12 +108,12 @@
                                 </div>
                                 <div>
                                     <h3 class="team_member_name mt-3">{{ $data['our_teammate_heading_1'] ?? null }}</h3>
-                                    <p class="cooking_classes_p mb-3">{{ $data['our_teammate_1_description'] ?? null }}</p>
+                                    <p class="cooking_classes_p mb-3 d-none">{{ $data['our_teammate_1_description'] ?? null }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-12">
+                    <div class="col-lg-4 col-md-4 col-12 team_2" onclick="showTeam(2)">
                         <div class="text-center">
                             <img src="{{ asset('frontend/about_us/out_team1/our_teammate_img_1.png') }}" alt="">
                         </div>
@@ -124,12 +124,12 @@
                                 </div>
                                 <div>
                                     <h3 class="team_member_name mt-3">{{ $data['our_teammate_heading_2'] ?? null }}</h3>
-                                    <p class="cooking_classes_p mb-3">{{ $data['our_teammate_2_description'] ?? null }}</p>
+                                    <p class="cooking_classes_p mb-3 d-none">{{ $data['our_teammate_2_description'] ?? null }}</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-12">
+                    <div class="col-lg-4 col-md-4 col-12 team_3" onclick="showTeam(3)">
                         <div class="text-center">
                             <img src="{{ asset('frontend/about_us/out_team3/our_teammate_img_3.png') }}" alt="">
                         </div>
@@ -140,7 +140,7 @@
                                 </div>
                                 <div>
                                     <h3 class="team_member_name mt-3">{{ $data['our_teammate_heading_3'] ?? null }}</h3>
-                                    <p class="cooking_classes_p mb-3">{{ $data['our_teammate_3_description'] ?? null }}</p>
+                                    <p class="cooking_classes_p mb-3 d-none">{{ $data['our_teammate_3_description'] ?? null }}</p>
                                 </div>
                             </div>
                         </div>

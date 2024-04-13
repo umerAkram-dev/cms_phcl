@@ -38,15 +38,21 @@
                         <th>Subject</th>
                         <th>Contact Us Textarea</th>
                     </tr>
-                    @foreach ($queries as $query)
+                    @forelse ($queries as $query)
                         <tr>
-                            <td>{{ $query->username }}</td>
+                            <td>{{ $query->username }}
+                                (<a href="{{ route('admin.qurey.delete', $query->id) }}" class="text-danger">delete</a>)
+                            </td>
                             <td>{{ $query->email }}</td>
                             <td>{{ $query->phone }}</td>
                             <td>{{ $query->subject }}</td>
                             <td>{{ $query->contact_us_textarea }}</td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="5">no data found</td>
+                        </tr>
+                    @endforelse
                 </table>
             </div>
         </section>

@@ -52,18 +52,17 @@
             <div class=" border_bottom_white mt-3">
                 <div class="footer_copy_right">
                     <div class="footer_logo">
-                        <a class="me-5" style="text-decoration: none" href="https://azsic.live/">
-
+                        <a class="me-5" style="text-decoration: none" href="mailto:industriestemb@gmail.com">
                             <img width="70px" src="{{ asset('assets/images/PPI_Logo.png') }}"
                                 alt="logo">
                         </a>
-                        <a href="https://azsic.live/">
+                        <a href="mailto:industriestemb@gmail.com">
                             <img width="70px" src="{{ asset('frontend/footer/bottom_imgs/bottom_img_2.png') }}"
                                 alt="logo">
                         </a>
                     </div>
                     &nbsp;
-                    <p>Designed &amp; Developed by PivotPoint Innovation © All Rights Reserved 2023</p>
+                    <p class="text-white">Designed &amp; Developed by PivotPoint Innovation © All Rights Reserved</p>
                 </div>
             </div>
         </div>

@@ -113,4 +113,9 @@ class HomeController extends Controller
         $queries= Query::get();
         return view('admin.home.qurey_listing',compact('queries'));
     }
+    public function Qureydelete($id)
+    {
+        Query::find($id)->delete();
+        return redirect()->back();
+    }
 }
