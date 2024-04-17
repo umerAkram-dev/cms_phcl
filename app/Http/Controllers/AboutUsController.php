@@ -9,7 +9,7 @@ class AboutUsController extends Controller
 {
     public function index()
     {
-        $contents = Content::where('page', 'about_us')->get();
+        $contents = Content::where('page', 'about_us')->orwhere('type','gallery_description')->get();
         $data = [];
         foreach ($contents as $value) {
             $data[$value->type] = $value->content;
