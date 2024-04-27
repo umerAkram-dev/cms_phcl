@@ -64,7 +64,7 @@
         }
 
         .navbar_bg::after {
-            background: url('{{ asset('frontend/donation/header/header_background_img.png') }}') center/cover no-repeat !important;
+            background: url('{{ asset('frontend/ride/header/header_background_img.png') }}') center/cover no-repeat !important;
             z-index: -2;
             height: 41.5em;
         }
