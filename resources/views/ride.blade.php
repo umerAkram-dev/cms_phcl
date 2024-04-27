@@ -118,7 +118,7 @@
                 <div class="container conatiner_position">
                     <a class="navbar-brand" href="/"><img
                             src="{{ asset('frontend/header/header/logo_header.png') }}" alt=""></a>
-                    <button class="navbar-toggler hamburger_background" type="button" data-bs-toggle="collapse"
+                    {{-- <button class="navbar-toggler hamburger_background" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -164,7 +164,7 @@
                             </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> --}}
                 </div>
             </nav>
             <div class="container" style="position: sticky;top: 100%; ">
@@ -499,7 +499,7 @@
         $social_media_logos = ['youtube', 'facebook', 'whatapp'];
     @endphp
     <footor>
-        <div class="footor-link">
+        <div class="footor-link" style="background-color:#779EC3">
             <div class="container">
                 <div class="row text-white">
                     <div class="col-lg-6 col-md-6">
