@@ -197,7 +197,7 @@
                     <div class="about">
                         <h6 class="head-2 about-header">About Swift Ride Pro</h6>
                         <p class="about-text">
-                            {{ $data['about_ride_description'] }}
+                            {{ $data['about_ride_description']??null }}
                         </p>
                     </div>
                 </div>
@@ -223,10 +223,10 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="card service-card p-md-4 p-3 ml-5">
                             <img src="{{ asset('frontend/ride/ride_' . $i . '/ride_box_img_' . $i . '.png') }}"
-                                alt="{{ $data['ride_heading_' . $i . ''] }}" class="service-img">
+                                alt="{{ $data['ride_heading_' . $i ] ??null}}" class="service-img">
                             <h6 class="mt-2 mt-sm-0 head-4 service-header pt-3 pb-2">
-                                {{ $data['ride_heading_' . $i . ''] }}</h6>
-                            <p class="service-text">{{ $data['ride_' . $i . '_description'] }}</p>
+                                {{ $data['ride_heading_' . $i ]??null}}</h6>
+                            <p class="service-text">{{ $data['ride_' . $i . '_description']??null }}</p>
                         </div>
                     </div>
                 @endfor
@@ -257,14 +257,14 @@
                 @for ($i = 1; $i < 4; $i++)
                     <div class="col-lg-4 col-md-4 d-flex justify-content-md-center align-items-center">
                         <h6 class="number head-4">1</h6>
-                        <h6 class="head-4 point">{{ $data['service_heading_' . $i] }}</h6>
+                        <h6 class="head-4 point">{{ $data['service_heading_' . $i]??null }}</h6>
                     </div>
                 @endfor
             </div>
         </div>
         <div class="container mt-3">
             <div class="row pe-lg-5 ps-lg-5 pt-3">
-                <p class="point-text">{{ $data['service_description'] }}</p>
+                <p class="point-text">{{ $data['service_description']??null }}</p>
             </div>
         </div>
     </section>
@@ -284,10 +284,10 @@
                             <img src="{{ asset('frontend/ride/package_' . $i . '/our_package_img_' . $i . '.png') }}"
                                 alt="" class="package-img">
                             <h6 class="package-title head-4 packages-sub-header">
-                                {{ $data['our_package_heading_' . $i . ''] }}
+                                {{ $data['our_package_heading_' . $i . '']??null }}
                             </h6>
                             @php
-                                $desc = explode("\n", $data['our_package_' . $i . '_description']);
+                                $desc = explode("\n", $data['our_package_' . $i . '_description']??null);
                             @endphp
                             <ul>
                                 @foreach ($desc as $d)
@@ -312,11 +312,11 @@
                     <div class="col-lg-4 col-md-4">
                         <div class="card service-card p-4 ml-5">
                             <img src="{{ asset('frontend/ride/driver_experenice_' . $i . '/driver_experenice_img_' . $i . '.png') }}"
-                                alt="{{ $data['driver_experenice_' . $i . ''] }}" class="service-img">
+                                alt="{{ $data['driver_experenice_' . $i . '']??null }}" class="service-img">
                             <h6 class="mt-2 head-4 service-header pt-3 pb-2">
-                                {{ $data['driver_experenice_' . $i . ''] }}
+                                {{ $data['driver_experenice_' . $i . '']??null }}
                             </h6>
-                            <p class="service-text">{{ $data['driver_experenice_' . $i . '_description'] }}</p>
+                            <p class="service-text">{{ $data['driver_experenice_' . $i . '_description']??null }}</p>
                         </div>
                     </div>
                 @endfor
@@ -356,11 +356,11 @@
                     <div class="col-lg-3 col-md-6 col-12 mt-md-3">
                         <div class="card driver-card">
                             <img src="{{ asset('frontend/ride/driver_information/driver_information_img_' . $i . '.png') }}"
-                                alt="{{ $data['driver_information_' . $i . ''] }}">
+                                alt="{{ $data['driver_information_' . $i ]??null }}">
                             <h4 class="mt-2 head-5 driver-exp-header pt-3 pb-2">
-                                {{ $data['driver_information_' . $i . ''] }}
+                                {{ $data['driver_information_' . $i . '']??null }}
                             </h4>
-                            <p class="driver-exp-text">{{ $data['driver_information_' . $i . '_description'] }}</p>
+                            <p class="driver-exp-text">{{ $data['driver_information_' . $i . '_description'] ??null}}</p>
                         </div>
                     </div>
                 @endfor
@@ -368,7 +368,7 @@
         </div>
         <div class="container mt-lg-5 mt-md-5 mt-sm-auto">
             <div class="row pe-lg-5 ps-lg-5 pe-md-5 ps-md-5  pt-5">
-                <p class="point-text">{{ $data['driver_information_bottom_description'] }}</p>
+                <p class="point-text">{{ $data['driver_information_bottom_description']??null }}</p>
             </div>
         </div>
     </section>
@@ -379,58 +379,58 @@
             <div class="row mt-lg-5 mt-md-5 mt-sm-1">
                 <div class="col-lg-4 col-md-4">
                     <div class="card float-card text-center">
-                        <h6 class="float-package-title head-4" style="color: #034f75">{{ $data['plan_name_1'] }}</h6>
-                        <h6 class="head" style="color: #034f75">{{ $data['pricing_1'] }}</h6>
-                        <h6 style="color: #81A7BA;">{{ $data['pricing_description_1'] }}</h6>
+                        <h6 class="float-package-title head-4" style="color: #034f75">{{ $data['plan_name_1']??null }}</h6>
+                        <h6 class="head" style="color: #034f75">{{ $data['pricing_1']??null }}</h6>
+                        <h6 style="color: #81A7BA;">{{ $data['pricing_description_1']??null }}</h6>
                         <ul class="text-start">
                             <li style="color: #034f75;"><img src="./assets/images/tick.png" alt=""
-                                    class="me-4">{{ $data['features_1_1'] }}
+                                    class="me-4">{{ $data['features_1_1']??null }}
                             </li>
                             <li style="color: #034f75"><img src="./assets/images/tick.png" alt=""
-                                    class="me-4">{{ $data['features_1_2'] }}</li>
+                                    class="me-4">{{ $data['features_1_2']??null }}</li>
                         </ul>
                         <div class="float-logo m-auto">
                             <img src="{{ asset('frontend/ride/pricing_plan_1/pricing_plan1.png') }}" alt="logo-back"
                                 class="float-logo">
                         </div>
-                        <h6 class="mb-5 head-3 swift">{{ $data['plan_information_1'] }}</h6>
+                        <h6 class="mb-5 head-3 swift">{{ $data['plan_information_1']??null }}</h6>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 text-center">
                     <div class="card float-card-advance text-center text-white">
-                        <h6 class="float-package-title-advance head-4">{{ $data['plan_name_2'] }}</h6>
-                        <h6 class="head">{{ $data['pricing_2'] }}</h6>
-                        <h6 style="color: #81A7BA;">{{ $data['pricing_description_2'] }}</h6>
+                        <h6 class="float-package-title-advance head-4">{{ $data['plan_name_2']??null }}</h6>
+                        <h6 class="head">{{ $data['pricing_2']??null }}</h6>
+                        <h6 style="color: #81A7BA;">{{ $data['pricing_description_2']??null }}</h6>
                         <ul class="text-start">
                             <li><img src="./assets/images/tick.png" alt=""
-                                    class="me-4">{{ $data['features_2_1'] }}</li>
+                                    class="me-4">{{ $data['features_2_1']??null }}</li>
                             <li><img src="./assets/images/tick.png" alt=""
-                                    class="me-4">{{ $data['features_2_2'] }}
+                                    class="me-4">{{ $data['features_2_2']??null }}
                             </li>
                         </ul>
                         <div class="float-logo m-auto">
                             <img src="{{ asset('frontend/ride/pricing_plan_2/pricing_plan2.png') }}"
                                 alt="logo-white">
                         </div>
-                        <h6 class="mb-5 head-3 swift">{{ $data['plan_information_2'] }}</h6>
+                        <h6 class="mb-5 head-3 swift">{{ $data['plan_information_2']??null }}</h6>
                     </div>
                 </div>
                 <div class=" col-lg-4 col-md-4 text-center">
                     <div class="card float-card text-center">
-                        <h6 class="float-package-title head-4" style="color: #034f75">{{ $data['plan_name_3'] }}</h6>
-                        <h6 class="head" style="color: #034f75">{{ $data['pricing_3'] }}</h6>
-                        <h6 style="color: #81A7BA;">{{ $data['pricing_description_3'] }}</h6>
+                        <h6 class="float-package-title head-4" style="color: #034f75">{{ $data['plan_name_3']??null }}</h6>
+                        <h6 class="head" style="color: #034f75">{{ $data['pricing_3']??null }}</h6>
+                        <h6 style="color: #81A7BA;">{{ $data['pricing_description_3']??null }}</h6>
                         <ul class="text-start">
                             <li style="color: #034f75"><img src="./assets/images/tick.png" alt=""
-                                    class="me-4">{{ $data['features_3_1'] }}
+                                    class="me-4">{{ $data['features_3_1']??null }}
                             </li>
                             <li style="color: #034f75"><img src="./assets/images/tick.png" alt=""
-                                    class="me-4">{{ $data['features_3_1'] }}</li>
+                                    class="me-4">{{ $data['features_3_1']??null }}</li>
                         </ul>
                         <div class="float-logo m-auto">
                             <img src="{{ asset('frontend/ride/pricing_plan_3/pricing_plan3.png') }}" alt="logo-back">
                         </div>
-                        <h6 class="mb-5 head-3 swift">{{ $data['plan_information_3'] }}</h6>
+                        <h6 class="mb-5 head-3 swift">{{ $data['plan_information_3']??null }}</h6>
                     </div>
                 </div>
             </div>
@@ -445,7 +445,7 @@
             </div>
             <div class="row pt-5 pb-lg-5">
                 <div class="col-lg-6 col-md-6 d-flex justify-content-start align-items-center">
-                    <h6 class="waht_people_say">{{ $data['testimonies_heading'] }}</h6>
+                    <h6 class="waht_people_say">{{ $data['testimonies_heading']??null }}</h6>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="comment">
@@ -457,7 +457,7 @@
                             <i class="fa-solid fa-star pe-2"></i>
                             <i class="fa-solid fa-star"></i>
                         </div>
-                        <p class="ps-lg-5 testimonial_review pt-4 pb-2">{{ $data['our_client_description'] }}</p>
+                        <p class="ps-lg-5 testimonial_review pt-4 pb-2">{{ $data['our_client_description']??null }}</p>
                     </div>
                     <div class="row ps-lg-5">
                         <div class="col-lg-2 col-md-2">
@@ -465,8 +465,8 @@
                                 class="user-pic mb-lg-0 mb-md-3 mb-3">
                         </div>
                         <div class="col-lg-10 col-md-10">
-                            <h6 class="user_name_testimonial">{{ $data['our_client_name'] }}</h6>
-                            <p class="testimonial_review_designation">{{ $data['our_client_role'] }}</p>
+                            <h6 class="user_name_testimonial">{{ $data['our_client_name']??null }}</h6>
+                            <p class="testimonial_review_designation">{{ $data['our_client_role']??null }}</p>
                         </div>
                     </div>
                 </div>
