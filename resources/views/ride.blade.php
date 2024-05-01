@@ -117,7 +117,7 @@
             <nav class="navbar navbar-expand-lg bg-transparent">
                 <div class="container conatiner_position">
                     <a class="navbar-brand" href="/"><img
-                            src="{{ asset('frontend/header/header/logo_header.png') }}" alt=""></a>
+                            src="{{ asset('frontend/ride_footer/header/logo_footer.png') }}" alt="" style="width: 4em"></a>
                     {{-- <button class="navbar-toggler hamburger_background" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -506,7 +506,7 @@
                         <div class="pchl-text">
                             <h6 class="head-3"> <span class="hyper-img"><img
                                         src="{{ asset('frontend/ride_footer/header/logo_footer.png') }}"
-                                        alt=""></span>
+                                        alt="" style="width: 4em"></span>
                             </h6>
                         </div>
                         <p>{{ $data['footer_description'] ?? null }}</p>

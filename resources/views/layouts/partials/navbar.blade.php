@@ -31,7 +31,7 @@
 </style>
 <div class="container conatiner_position">
     <a class="navbar-brand" href="/"><img src="{{ asset('frontend/header/header/logo_header.png') }}"
-            alt=""></a>
+            alt="" style="width: 4em"></a>
     <button class="navbar-toggler hamburger_background" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
         aria-label="Toggle navigation">
