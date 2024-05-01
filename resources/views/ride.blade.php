@@ -566,7 +566,7 @@
                         &nbsp;
                     </div>
                     <div class="row text-center text-white">
-                        <p class="pt-3">Powered by PivotPoint - Copyright © Swift Ride Pro</p>
+                        <p class="pt-3">Powered by PivotPoint - Swift Ride Pro</p>
                     </div>
                 </div>
             </div>
