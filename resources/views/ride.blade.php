@@ -523,7 +523,7 @@
                     </div>
                     <div class="col-lg-3 col-md-3 col-12">
 
-                        <h3 class="pchl_info pt-4">PCHL Info</h3>
+                        <h3 class="pchl_info pt-4">Swift Ride Pro</h3>
                         @for ($i = 1; $i < 4; $i++)
                             <a href="{{ $data['about_link_' . $i . ''] ?? null }}"
                                 style="text-decoration: none !important">
@@ -566,7 +566,7 @@
                         &nbsp;
                     </div>
                     <div class="row text-center text-white">
-                        <p class="pt-3">Powered by PivotPoint - Copyright © Swift Ride Pro 2024</p>
+                        <p class="pt-3">Powered by PivotPoint - Copyright © Swift Ride Pro</p>
                     </div>
                 </div>
             </div>
