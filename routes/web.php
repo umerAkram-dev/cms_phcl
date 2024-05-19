@@ -23,7 +23,7 @@ Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('save_contact', 'ContactController@save_contact')->name('save_contact');
 Route::get('donation', 'DonationController@index')->name('donation');
 Route::get('programhighlights/{type}', 'ProgramHighlightsController@index')->name('programhighlights');
-Route::get('ride', 'RideController@index')->name('ride');
+// Route::get('ride', 'RideController@index')->name('ride');
 
 
 Route::middleware(['auth'])->group(function () {
@@ -33,7 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/programhighlights/{type}', 'Admin\HomeController@programhighlights')->name('admin.programhighlights');
     Route::get('/admin/contact', 'Admin\HomeController@contact')->name('admin.contact');
     Route::post('update_content', 'Admin\ContentController@update')->name('admin.update_content');
-    Route::get('/admin/ride', 'Admin\HomeController@ride_page')->name('admin.ride_page');
+    // Route::get('/admin/ride', 'Admin\HomeController@ride_page')->name('admin.ride_page');
     Route::get('/admin/settings', 'Admin\HomeController@settings')->name('admin.settings');
     Route::get('/admin/footer', 'Admin\HomeController@footer')->name('admin.footer');
     Route::get('/admin/header', 'Admin\HomeController@header')->name('admin.header');
